@@ -122,20 +122,22 @@ public class Bulbasaur extends Pokemon implements GrassType, PoisonType{
          if(vType.equals("Ground") || vType.equals("Rock") || vType.equals("Water")){
             s = s + "\n It was super effective!";
             modifier = modifier * 2.0;          
-         }else if(vType.equals("Bug") || vType.equals("Dragon") || vType.equals("Fire")||
+         }else if(vType.equals("Bug") || vType.equals("Dragon") || vType.equals("Fire")||vType.equals("Dragon")||
                vType.equals("Flying") || vType.equals("Grass") || vType.equals("Poison") || vType.equals("Steel")){ 
             s = s + "\n It was not very effective.";
             modifier = modifier * 0.5;
          }
       }else{//is poison attack
-         if(vType.equals("Ground") || vType.equals("Psychic")){
+         if(vType.equals("Grass") || vType.equals("Fairy")){
             s = s + "\n It was super effective!";
             modifier = modifier * 2.0;
             
-         }else if(vType.equals("Bug") || vType.equals("Fairy") ||
-               vType.equals("Flying") || vType.equals("Grass") || vType.equals("Poison")){ 
+         }else if(vType.equals("Rock") || vType.equals("Ghost") || vType.equals("Ground") || vType.equals("Poison")){ 
             s = s + "\n It was not very effective.";
             modifier = modifier * 0.5;
+         }else if(vType.equals("Steel")){ 
+            s = s + "\n It had no effect.";
+            modifier = 0;
          }
       }
       //check for same types for bonus
@@ -173,28 +175,29 @@ public class Bulbasaur extends Pokemon implements GrassType, PoisonType{
       s = name+ " performed " + specialAttack + " on " + victim.getSpecies();
       
       //check effectiveness of attack
-      if(fastIsGrass){  //if this is a grass attack
+      if(specialIsGrass){//if attack is grass-type
          if(vType.equals("Ground") || vType.equals("Rock") || vType.equals("Water")){
             s = s + "\n It was super effective!";
-            modifier = modifier * 2.0;
-            
-         }else if(vType.equals("Bug") || vType.equals("Dragon") || vType.equals("Fire")||
+            modifier = modifier * 2.0;          
+         }else if(vType.equals("Bug") || vType.equals("Dragon") || vType.equals("Fire")||vType.equals("Dragon")||
                vType.equals("Flying") || vType.equals("Grass") || vType.equals("Poison") || vType.equals("Steel")){ 
             s = s + "\n It was not very effective.";
             modifier = modifier * 0.5;
          }
-         
       }else{//is poison attack
-         if(vType.equals("Ground") || vType.equals("Psychic")){
+         if(vType.equals("Grass") || vType.equals("Fairy")){
             s = s + "\n It was super effective!";
-            modifier = modifier *  2.0;
+            modifier = modifier * 2.0;
             
-         }else if(vType.equals("Bug") || vType.equals("Fairy") ||
-               vType.equals("Flying") || vType.equals("Grass") || vType.equals("Poison")){ 
+         }else if(vType.equals("Rock") || vType.equals("Ghost") || vType.equals("Ground") || vType.equals("Poison")){ 
             s = s + "\n It was not very effective.";
-            modifier = modifier *  0.5;
+            modifier = modifier * 0.5;
+         }else if(vType.equals("Steel")){ 
+            s = s + "\n It had no effect.";
+            modifier = 0;//will zero whole calculation
          }
       }
+
       //check for same types for bonus
       if(type1.equals(vType) && type2.equals(victim.getType2())){
          modifier = modifier *  1.5;
