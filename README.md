@@ -1,7 +1,18 @@
-# Assigment 2 Pokemon Object Hierarchy
-## Part 1 due October, 10th, Part 2 due October, 10th. Part 3 due October 17th
+# Assignment 2 - Pokemon Object Hierarchy
+#### Part 1
+ * 50 points
+ * due October, 3rd.
+
+#### Part 2 
+ * 150 points
+ * due October, 10th.
+
+#### Part 3 
+ * 100 points
+ * due October 17th.
+ 
 ----
-### Build an Object Oriented Pokemon Class Hierarchy
+## Building an Object Oriented Pokemon Class Hierarchy
 
 Okay, I may have gone a little overboard on how I wanted this to work. Because of that, I've done part of the coding 
 myself to give you something to start from. This will be a good experience for you to try to read someone else's code and
@@ -42,7 +53,7 @@ What is included in this repository:
 ----
 ### What do you do?
 
-#### Part 1:
+#### Part 1 due October, 3rd:
  1. Clone the repository to your own computer. 
  2. Thoroughly examine the code I have given you and the UML diagram above. Try to figure out what I have done and how you can build the rest.
  2. Test my code using jGRASP Interactions. For example, stuff like this should work already:
@@ -63,15 +74,17 @@ s = v1.performFastAttack(b1);
   * In the pull request write an outline of what your plan for coding the rest of the Pokemon subclasses in the UML diagram.
   * This doesn't have to be perfect, you'll probably have to make changes to your plans while coding, I just want to see that you understand the provided code and are able to plan your additions to it.
 
-#### Part 2:
+#### Part 2 due October, 10th:
  1. Write the rest of the Pokemon subclasses in the UML diagram
   3. Build Squirtle.java, Wartortle.java, and Blastoise.java first. They will be easiest because they're all the same type: water.
   4. Build Charmander.java and Charmaleon.java these are both the same type too: fire.
   5. Build Charizard which must implement an additional type interface: flying
   
-  JUnit tests will be provided for these classes by next weekend ~ Oct. 1st.
+ * The height, weight, and base attack, defense, and stamina stats (hover over bars for these) are here: [https://thesilphroad.com/research](https://thesilphroad.com/research) 
+ 
+ * JUnit tests will be provided for these classes by next weekend ~ Oct. 1st.
   
-#### Part 3:
+#### Part 3 due October 17th:
 
  1. Adapt your ArrayOfPokemon code from the last assignment to use the new Pokemon objects.
    * Instead of just letting the user enter the information for the Pokemon when adding, make another menu for them to pick from the 9
@@ -81,13 +94,17 @@ s = v1.performFastAttack(b1);
  3. Don't let the ArrayList keep growing though it can! Limit the number of stored Pokemon to 6 still.
  
 ## Extra Credit
+ * These are due by the final due date of this Assignment: October 17th.
 
 #### Extra Project 1:
+
+ * 100 points.
  * Implement the interfaces and Pokemon subclasses for Eevee, Vaporeon, Jolteon, and Flareon. Pokemon numbers 133 - 136.
    * This is tricky because Eevee is the superclass for the other three, but Vaporeon, Jolteon, and Flareon are all different types and do not inherit Eevee's type. You may have to get creative/hackish with Eevee's Normal type to make this work. Just don't break the rest of the Pokemon!
    * Your Eevee family should also work with the ArrayList of Pokemon!
    
 #### Extra Project 2:
+ * 100 points
  * Build a PokemonBattle game/main method. 
    * Two players will alternate turns.
    * First each player will choose a Pokemon
