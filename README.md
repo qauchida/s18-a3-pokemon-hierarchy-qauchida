@@ -3,7 +3,7 @@
 ----
 ### Build an Object Oriented Pokemon Class Hierarchy
 
-Okay, I may have gone a little overboard on how I wanted this to work. Because of that I've done part of the coding 
+Okay, I may have gone a little overboard on how I wanted this to work. Because of that, I've done part of the coding 
 myself to give you something to start from. This will be a good experience for you to try to read someone else's code and
 understand what it is doing.
 
@@ -17,14 +17,14 @@ I have implemented everything in blue in the UML diagram. *Instructions continue
 [uml]:https://github.com/ICSatKCC/PokemonObjectHierarchy/blob/master/PokemonUMLDiagram.png "Pokemon UML Diagram"
 ----
 What is included in this repository:
- * Pokemon.java abstract superclass for all Pokemon species
-  * This is basically an extension of your first assignment Pokemon with some extra data fields and some abstract methods required of the subclasses.
+ * Pokemon.java - abstract superclass for all Pokemon species
+  * This is basically an extension of your first assignment Pokemon with some new data fields and some abstract methods required of the subclasses.
   
  * Bulbasaur.java - Highest level subclass in the Grass|Poison dual-type Bulbasaur family
  * Ivysaur.java - Middle level subclass in the Bulbasaur family
  * Venusaur.java - Bottom level subclass in the Bulbasaur family
  
- * Interfaces (representing Pokemon types): These only implement constants that hold two descriptors, color and type as a String and arrays that hold allowed fast and special attacks and their respective power values.
+ * Interfaces (representing Pokemon types): These only implement constants. Two are Strings that hold descriptors, color and type, four are arrays that hold Strings of allowed fast and special attack names and their respective power values.
    * FireType.java
    * FlyingType.java
    * GrassType.java
@@ -43,7 +43,8 @@ What is included in this repository:
 ### What do you do?
 
 #### Part 1:
- 1. Thoroughly examine the code I have given you and the UML diagram above. Try to figure out what I have done and how you can build the rest.
+ 1. Clone the repository to your own computer. 
+ 2. Thoroughly examine the code I have given you and the UML diagram above. Try to figure out what I have done and how you can build the rest.
  2. Test my code using jGRASP Interactions. For example, stuff like this should work already:
  ```
  Bulbasaur b1 = new Bulbasaur();
@@ -54,12 +55,45 @@ String s = b1.toString();
 
 s = v1.performFastAttack(b1);
  ```
- 3. Build Squirtle.java, Wartortle.java, and Blastoise.java first
-  * They will be easiest because they're all the same type: water.
- 4. Build Charmander.java and Charmaleon.java these are both the same type too: fire.
- 5. Build Charizard which must implement an additional type interface: flying
- 6. Adapt your ArrayOfPokemon code from the last assignment to use the new Pokemon objects.
+ 3. Make a develop branch and push it to Github
+  * git branch develop
+  * git checkout develop
+  * git push origin develop
+ 4. Make a Pull Request on GitHub.
+  * In the pull request write an outline of what your plan for coding the rest of the Pokemon subclasses in the UML diagram.
+  * This doesn't have to be perfect, you'll probably have to make changes to your plans while coding, I just want to see that you understand the provided code and are able to plan your additions to it.
+
+#### Part 2:
+ 1. Write the rest of the Pokemon subclasses in the UML diagram
+  3. Build Squirtle.java, Wartortle.java, and Blastoise.java first. They will be easiest because they're all the same type: water.
+  4. Build Charmander.java and Charmaleon.java these are both the same type too: fire.
+  5. Build Charizard which must implement an additional type interface: flying
+  
+  JUnit tests will be provided for these classes by next weekend ~ Oct. 1st.
+  
+#### Part 3:
+
+ 1. Adapt your ArrayOfPokemon code from the last assignment to use the new Pokemon objects.
    * Instead of just letting the user enter the information for the Pokemon when adding, make another menu for them to pick from the 9
    implemented species (Bulbasaur, Ivysaur, Venusaur, Charmander, Charmaleon, Charizard, Squirtle, Wartortle, Blastoise). Only allow them to enter a nickname if they want. Then call the constructor for the chosen Pokemon.
+ 2. Change the Array to a Java API ArrayList. 
+  * See ICS211_Lecture09_ListsAndContainers.pdf on Laulima -> Resources -> Week 5. Particularly Slide 40 shows how to initialize a Java generic ArrayList. Also see the [Java API website for ArrayList](http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html) for available methods.
+ 3. Don't let the ArrayList keep growing though it can! Limit the number of stored Pokemon to 6 still.
+ 
+## Extra Credit
+
+#### Extra Project 1:
+ * Implement the interfaces and Pokemon subclasses for Eevee, Vaporeon, Jolteon, and Flareon. Pokemon numbers 133 - 136.
+   * This is tricky because Eevee is the superclass for the other three, but Vaporeon, Jolteon, and Flareon are all different types and do not inherit Eevee's type. You may have to get creative/hackish with Eevee's Normal type to make this work. Just don't break the rest of the Pokemon!
+   * Your Eevee family should also work with the ArrayList of Pokemon!
+   
+#### Extra Project 2:
+ * Build a PokemonBattle game/main method. 
+   * Two players will alternate turns.
+   * First each player will choose a Pokemon
+   * Then the two players would alternate entering commands to attack (fastAttack or specialAttack or pass). 
+    * A player must "pass" three times to build up energy for a specialAttack.
+   * You'll have to build a way to check for a Pokemon reaching 0 HP. That will signal the end of the game, with the other player as the winner.
+ 
    
 
