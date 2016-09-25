@@ -107,34 +107,45 @@ public class Bulbasaur extends Pokemon implements GrassType, PoisonType{
    */
    public String performFastAttack(Pokemon victim){
       
-      int hitPoints = fastAttackPower;
+      Random rand = new Random();
+      double damage = 0.0;
+      double modifier = 1.0;
+      double damageDivisor = 250.0;
+      
       String s = "";
       String vType = victim.getType1();
       
+      modifier = (double)(rand.nextInt(16) + 85)/100.0; //random modifier .85 - 1.00
       s = name+ " performed " + fastAttack + " on " + victim.getSpecies();
       //check effectiveness of attack
       if(fastIsGrass){//if attack is grass-type
          if(vType.equals("Ground") || vType.equals("Rock") || vType.equals("Water")){
             s = s + "\n It was super effective!";
-            hitPoints = hitPoints*2;          
+            modifier = modifier * 2.0;          
          }else if(vType.equals("Bug") || vType.equals("Dragon") || vType.equals("Fire")||
                vType.equals("Flying") || vType.equals("Grass") || vType.equals("Poison") || vType.equals("Steel")){ 
             s = s + "\n It was not very effective.";
-            hitPoints = (int)(hitPoints* 0.5);
+            modifier = modifier * 0.5;
          }
       }else{//is poison attack
          if(vType.equals("Ground") || vType.equals("Psychic")){
             s = s + "\n It was super effective!";
-            hitPoints = hitPoints*2;
+            modifier = modifier * 2.0;
             
          }else if(vType.equals("Bug") || vType.equals("Fairy") ||
                vType.equals("Flying") || vType.equals("Grass") || vType.equals("Poison")){ 
             s = s + "\n It was not very effective.";
-            hitPoints = (int)(hitPoints* 0.5);
+            modifier = modifier * 0.5;
          }
-      }      
+      }
+      //check for same types for bonus
+      if(type1.equals(vType) && type2.equals(victim.getType2())){
+         modifier = modifier *  1.5;
+      }
+      //bulbapedia damage formula:
+      damage = (((2*level)+10)/damageDivisor)* attackPower * (specialAttackPower + 2) * modifier;      
       //perform hit on victim pokemon
-      victim.beAttacked(hitPoints);
+      victim.beAttacked((int)damage);
       return s;
    }
    
@@ -143,53 +154,71 @@ public class Bulbasaur extends Pokemon implements GrassType, PoisonType{
    * Creates an output String stating attack details
    * checks for weakness/strength adjustment based on 
    * victim Pokemon's type and attack type(only need to check latter for dual-type)
+   * uses Damage formula from here: http://bulbapedia.bulbagarden.net/wiki/Damage
    * Calls beAttacked method on attacked victim.
    * @param Pokemon the Pokemon being attacked
    * @return String explaining attack and effectiveness
    */
    public String performSpecialAttack(Pokemon victim){
-      int hitPoints= specialAttackPower;
+      Random rand = new Random();
+      double damage = 0.0;
+      double modifier = 1.0;
+      double damageDivisor = 250.0;
+      
       String s = "";
       String vType = victim.getType1();
-
+      
+      modifier = (double)(rand.nextInt(16) + 85)/100.0; //random modifier .85 - 1.00
+      
       s = name+ " performed " + specialAttack + " on " + victim.getSpecies();
       
       //check effectiveness of attack
       if(fastIsGrass){  //if this is a grass attack
          if(vType.equals("Ground") || vType.equals("Rock") || vType.equals("Water")){
             s = s + "\n It was super effective!";
-            hitPoints = hitPoints*2;
+            modifier = modifier * 2.0;
             
          }else if(vType.equals("Bug") || vType.equals("Dragon") || vType.equals("Fire")||
                vType.equals("Flying") || vType.equals("Grass") || vType.equals("Poison") || vType.equals("Steel")){ 
             s = s + "\n It was not very effective.";
-            hitPoints = (int)(hitPoints* 0.5);
+            modifier = modifier * 0.5;
          }
+         
       }else{//is poison attack
          if(vType.equals("Ground") || vType.equals("Psychic")){
             s = s + "\n It was super effective!";
-            hitPoints = hitPoints*2;
+            modifier = modifier *  2.0;
             
          }else if(vType.equals("Bug") || vType.equals("Fairy") ||
                vType.equals("Flying") || vType.equals("Grass") || vType.equals("Poison")){ 
             s = s + "\n It was not very effective.";
-            hitPoints = (int)(hitPoints* 0.5);
+            modifier = modifier *  0.5;
          }
-      }     
+      }
+      //check for same types for bonus
+      if(type1.equals(vType) && type2.equals(victim.getType2())){
+         modifier = modifier *  1.5;
+      }
+      //bulbapedia damage formula:
+      damage = (((2*level)+10)/damageDivisor)* attackPower * (specialAttackPower + 2) * modifier;
+     
       //perform hit on victim pokemon
-      victim.beAttacked(hitPoints);
+      victim.beAttacked((int)damage);
       return s;
    }
    
    /*
-   * Reduces Pokemon's HP by hit
+   * Reduces Pokemon's HP by damage/defensePower
    * Doesn't allow HP to go less than 0
    * Implementation of "fainting" not done yet
    * @param int hit points to take off HP
    */
-   protected void beAttacked(int hit){
-      if(hP > hit){
-        hP = hP - hit;
+   protected void beAttacked(int damage){
+      //part of bulbapedia damage formula
+      damage = damage/defensePower;
+      
+      if(hP > damage){
+        hP = hP - damage;
       }else{
         hP = 0;//"Pokemon fainted"
       }
