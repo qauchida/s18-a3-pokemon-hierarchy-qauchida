@@ -44,7 +44,7 @@ public abstract class Pokemon{
    
    /*** constructor **/
    public Pokemon(String species, String name, int number, String color, double height, double weight,
-    String type1,String type2, int baseAttackPower, int baseDefensePower, int baseStaminaPower){
+    String type1, String type2, int baseAttackPower, int baseDefensePower, int baseStaminaPower){
       
       //for initial level
       Random randGen = new Random();
