@@ -1,28 +1,22 @@
-# Assignment 2 - Pokemon Object Hierarchy
+# Assignment 3 - Pokemon Object Hierarchy
 #### Part 1
  * 50 points
- * due October, 3rd.
+ * due Feb 7th.
 
 ---
 
 #### Part 2 
  * 150 points
- * due October, 10th.
+ * due Feb 14th.
 
 ---
 
-#### Part 3 
- * 100 points
- * due October 17th.
- 
-----
+
 ## Building an Object Oriented Pokemon Class Hierarchy
 
-Okay, I may have gone a little overboard on how I wanted this to work. Because of that, I've done part of the coding 
-myself to give you something to start from. This will be a good experience for you to try to read someone else's code and
-understand what it is doing.
+For this assignment, I've done part of the coding myself to give you something to start from. This will be a good experience for you to try to read someone else's code and understand what it is doing.
 
-Your task is to complete an Object Oriented Pokemon design for the Squirtle, Wartortle, Blastoise and the Charmander, Charmaleon, 
+Your task is to complete an Object Oriented Pokemon design for the Squirtle, Wartortle, Blastoise and the Charmander, Charmeleon, 
 Charizard Pokemon species families. This is described by the UML diagram below. The UML image file is also in the 
 repository as PokemonUMLDiagram.png
 
@@ -45,8 +39,10 @@ What is included in this repository:
    * GrassType.java
    * PoisonType.java
    * WaterType.java
-
- * TypeAttackEffectivenessChart.jpg - This shows the strength/weakness multipliers for different types. It should be used in your implementation of PerformFastAttack and PerformSpecialAttack methods.
+ * JUnit test files for all implemented species and those you are going to build:
+  * BlastoiseTest, BulbasaurTest, CharizardTest, CharmanderTest, CharmeleonTest, IvysaurTest, SquirtleTest, VenusaurTest, and WartortleTest.java
+  
+ * TypeAttackEffectivenessChart.jpg - This shows the strength/weakness multipliers for different types. It should be used in your implementation of PerformFastAttack an,d PerformSpecialAttack methods.
  
  * PokemonAttackPower.xlsx and .ods - Spreadsheet of fast and special attack names, types, powers. These are already in the required interfaces, but you'll need them to do the extra credit projects.
  
@@ -57,7 +53,7 @@ What is included in this repository:
 ----
 ## Assignments
 
-#### Part 1 due October, 3rd:
+#### Part 1 due February 7th:
  1. Clone the repository to your own computer. 
  2. Thoroughly examine the code I have given you and the UML diagram above. Try to figure out what I have done and how you can build the rest.
  2. Test my code using jGRASP Interactions. For example, stuff like this should work already:
@@ -73,6 +69,7 @@ s = v1.performFastAttack(b1);
  3. Make a develop branch and push it to Github
   * git branch develop
   * git checkout develop
+  * Make at least one change so there is a difference between the develop and master branches.
   * git push origin develop
  4. Make a Pull Request on GitHub.
   * In the pull request write an outline of what your plan for coding the rest of the Pokemon subclasses in the UML diagram.
@@ -80,7 +77,7 @@ s = v1.performFastAttack(b1);
 
 ---
 
-#### Part 2 due October, 10th:
+#### Part 2 due February 14th:
  1. Write the rest of the Pokemon subclasses in the UML diagram
   3. Build Squirtle.java, Wartortle.java, and Blastoise.java first. They will be easiest because they're all the same type: water.
   4. Build Charmander.java and Charmaleon.java these are both the same type too: fire.
@@ -88,41 +85,19 @@ s = v1.performFastAttack(b1);
   
  * The height, weight, and base attack, defense, and stamina stats (hover over bars for these) are here: [https://thesilphroad.com/research](https://thesilphroad.com/research) 
  
- * JUnit tests will be provided for these classes by next weekend ~ Oct. 1st.
-
 ---
 
-#### Part 3 due October 17th:
-
- 1. Adapt your ArrayOfPokemon code from the last assignment to use the new Pokemon objects.
-   * Instead of just letting the user enter the information for the Pokemon when adding, make another menu for them to pick from the 9
-   implemented species (Bulbasaur, Ivysaur, Venusaur, Charmander, Charmaleon, Charizard, Squirtle, Wartortle, Blastoise). Only allow them to enter a nickname if they want. Then call the constructor for the chosen Pokemon.
- 2. Change the Array to a Java API ArrayList. 
-  * See ICS211_Lecture09_ListsAndContainers.pdf on Laulima -> Resources -> Week 5. Particularly Slide 40 shows how to initialize a Java generic ArrayList. Also see the [Java API website for ArrayList](http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html) for available methods.
- 3. Don't let the ArrayList keep growing though it can! Limit the number of stored Pokemon to 6 still.
-
-----
 
 ## Extra Credit
- * These are due by the final due date of this Assignment: October 17th.
+ * Due by the final due date of this Assignment: February 14th.
 
-#### Extra Project 1:
-
- * 100 points.
+ * 50 points.
  * Implement the interfaces and Pokemon subclasses for Eevee, Vaporeon, Jolteon, and Flareon. Pokemon numbers 133 - 136.
    * This is tricky because Eevee is the superclass for the other three, but Vaporeon, Jolteon, and Flareon are all different types and do not inherit Eevee's type. You may have to get creative/hackish with Eevee's Normal type to make this work. Just don't break the rest of the Pokemon!
    * Your Eevee family should also work with the ArrayList of Pokemon!
    
 ---
 
-#### Extra Project 2:
- * 100 points
- * Build a PokemonBattle game/main method. 
-   * Two players will alternate turns.
-   * First each player will choose a Pokemon
-   * Then the two players would alternate entering commands to attack (fastAttack or specialAttack or pass). 
-    * A player must "pass" three times to build up energy for a specialAttack.
-   * You'll have to build a way to check for a Pokemon reaching 0 HP. That will signal the end of the game, with the other player as the winner.
  
    
 
