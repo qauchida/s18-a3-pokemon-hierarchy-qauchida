@@ -1,56 +1,91 @@
 import java.util.Random;
 import java.text.*; //imports decimal format
-/*
-* Abstract parent class for Pokemon species
+/**
+* Abstract parent class for Pokemon species.
 * @author Lisa Miller
-* @since 9/23/2013
+* @since 9/23/2016
 */
-public abstract class Pokemon{
+public abstract class Pokemon {
 
-   /*** instance variables ***/
+   /*** instance variables. ***/
+   /** The species name. */
    protected String species;
+   /** The user-given name. */
    protected String name;
+   /** The official Pokedex number. */
    protected int number;
+   /** The color based on type. */
    protected String color;
+   /** The height of the Pokemon. */
    protected double height;
+   /** The weight of the Pokemon. */
    protected double weight;
+   /** The main type, species-based. */
    protected String type1;
+   /** The optional second type, species based. */
    protected String type2;
    
    //hidden from user, used to calc HP/CP
+   /** The attack power used to calculate hit effectiveness. */
    protected int attackPower; 
+   /** The defensive power, used to calculate hit defense. */
    protected int defensePower;
+   /** The stamina, used to calculate power while battling. */
    protected int staminaPower;
+   /** The level, used to calculate HP and CP maximums. */
    protected double level;
    
    //for battling
+   /** The hit points, for calculating hit effectiveness. */
    protected int hP;
+   /** The combat power, for calculating battle outcomes. */
    protected int cP;
+   /** The name of the Fast Attack.*/
    protected String fastAttack;
+   /** The power of the Fast Attack. */
    protected int fastAttackPower;
+   /** The name of the Special Attack. */
    protected String specialAttack;
+   /** The power of the Special Attack. */
    protected int specialAttackPower;
-
+  
    //also hidden converts level to multiplier for CP
-   private double[] cpMultiplier = {0.094,  0.16639787,  0.21573247,  0.25572005,  0.29024988,
-        0.3210876 ,  0.34921268,  0.37523559,  0.39956728,  0.42250001,
+   /** Value used to calculate CP based on level. */
+   private double[] cpMultiplier = 
+       {0.094,  0.16639787,  0.21573247,  0.25572005,  0.29024988,
+        0.3210876,  0.34921268,  0.37523559,  0.39956728,  0.42250001,
         0.44310755,  0.46279839,  0.48168495,  0.49985844,  0.51739395,
         0.53435433,  0.55079269,  0.56675452,  0.58227891,  0.59740001,
-        0.61215729,  0.62656713,  0.64065295,  0.65443563,  0.667934  ,
-        0.68116492,  0.69414365,  0.70688421,  0.71939909,  0.7317    ,
+        0.61215729,  0.62656713,  0.64065295,  0.65443563,  0.667934,
+        0.68116492,  0.69414365,  0.70688421,  0.71939909,  0.7317,
         0.73776948,  0.74378943,  0.74976104,  0.75568551,  0.76156384,
-        0.76739717,  0.7731865 ,  0.77893275,  0.78463697,  0.79030001};
-
+        0.76739717,  0.7731865,  0.77893275,  0.78463697,  0.79030001};
+  
    
-   /*** constructor **/
-   public Pokemon(String species, String name, int number, String color, double height, double weight,
-    String type1, String type2, int baseAttackPower, int baseDefensePower, int baseStaminaPower){
+   /**
+   * constructor. 
+   *@param species The Pokemon's species.
+   *@param name The optional user-given name.
+   *@param number The Pokedex number for this species.
+   *@param color The type1-based color.
+   *@param height The height of this Pokemon.
+   *@param weight The weight of this Pokemon. 
+   *@param type1 The main type of this species.
+   *@param type2 The optional second type for species.
+   *@param baseAttackPower The low limit of Attack Power for species.
+   *@param baseDefensePower The low limit of Defense Power for species.
+   *@param baseStaminaPower The low limit of Stamina Power for speices. 
+   **/
+   public Pokemon(String species, String name, 
+       int number, String color, double height, double weight,
+       String type1, String type2, int baseAttackPower, 
+       int baseDefensePower, int baseStaminaPower) {
       
       //for initial level
       Random randGen = new Random();
       //for calc of CP
       double cpMult;
-
+   
       //set simple instance variables
       this.species = species;
       this.name = name;
@@ -62,16 +97,16 @@ public abstract class Pokemon{
       this.type2 = type2;
       
       //generate initial level
-      this.level = (double)randGen.nextInt(31);
-  
+      this.level = (double) randGen.nextInt(31);
+   
       //calculate multiplier for stats
-      cpMult = cpMultiplier[(int)level-1];
+      cpMult = cpMultiplier[(int) level - 1];
       
       //calculate hidden stats attack. defense, stamina power
-      attackPower =(int)((baseAttackPower + randGen.nextInt(16))*cpMult);
-      defensePower = (int)((baseDefensePower + randGen.nextInt(16))*cpMult);
-      staminaPower = (int)((baseStaminaPower + randGen.nextInt(16))*cpMult);
-
+      attackPower = (int) ((baseAttackPower + randGen.nextInt(16)) * cpMult);
+      defensePower = (int) ((baseDefensePower + randGen.nextInt(16)) * cpMult);
+      staminaPower = (int) ((baseStaminaPower + randGen.nextInt(16)) * cpMult);
+   
       //set Pokemon's HP and CP from attack, defense and stamina
       calculateHPAndCP(); 
       
@@ -82,76 +117,80 @@ public abstract class Pokemon{
       specialAttackPower = 0;
    }
    
-   /*private method to calculate or update HP and CP
-   * uses formula from here: https://pokemongo.gamepress.gg/pokemon-stats-advanced
+   /**
+   * Private method to calculate or update HP and CP.
+   * uses formula from here: 
+   * https://pokemongo.gamepress.gg/pokemon-stats-advanced
    */
-   private void calculateHPAndCP(){
+   private void calculateHPAndCP() {
       //calculate multiplier for stats
-      double cpMult = cpMultiplier[(int)level-1];
+      double cpMult = cpMultiplier[(int) level - 1];
       hP = staminaPower;
-      cP = (int)((attackPower * Math.pow(defensePower,0.5) * Math.pow(staminaPower, 0.5) * Math.pow(cpMult,2))/10.0);
+      cP = (int) ((attackPower * Math.pow(defensePower, 0.5) 
+         * Math.pow(staminaPower, 0.5) * Math.pow(cpMult, 2)) / 10.0);
    }
    
    /*** public class methods ***/
-   /*
-   * Increases Pokemon's level by 1
-   * Adjusts HP and CP accordingly
+   /**
+   * Increases Pokemon's level by 1.
+   * Adjusts HP and CP accordingly.
    */
-   public void levelUp(){
-      level ++;
+   public void levelUp() {
+      level++;
       calculateHPAndCP();
    }
    
-   /*
-   * Returns Pokemon information as a formatted String
-   * @return String representing Pokemon object data
+   /**
+   * Returns Pokemon information as a formatted String.
+   * @return String representing Pokemon object data.
    */
-   public String toString( ){
+   public String toString() {
       DecimalFormat df = new DecimalFormat("000");
-      String s="";
+      String s = "";
       
       s = "Species: " + species + "\n";
-      if(species.compareTo(name) != 0){
+      if (species.compareTo(name) != 0) {
          s = s + "Name: " + name + "\n";
       }
       s = s + "Number: " +  df.format(number) + "\n";
       s = s + "Height: " + height + "\n";
       s = s + "Weight: " + weight + "\n";
       s = s + "Type: " + type1;
-      if(this.type2.length() > 0){
+      if (this.type2.length() > 0) {
          s = s + " | " + this.type2;
       }
-      s = s+ "\n";
+      s = s + "\n";
       s = s + "HP: " + hP + "\n";
       s = s + "CP: " + cP + "\n";
       
       return s;
    }
    
-  /* sets Pokemon's user-defined name
-   * @param String new name
-   */
-   public void setName(String newName){
+  /**
+  * Sets Pokemon's user-defined name.
+  * @param newName The new name.
+  */
+   public void setName(String newName) {
       name = newName;
    }
    
   /*** abstract methods required for sub-classes ***/
-   /*
+   /**
    * Retrieves victim Pokemon's type.
    * Determines if the attack is super effective or not effective
    * Performs beAttacked on victim
-   * @param Pokemon victim the Pokemon object being attacked
+   * @param victim The Pokemon object being attacked.
    * @return String "<species> performed <fastAttack> 
    * + <it <was super, wasn't very, was not> effective>" depending on type
    */
    public abstract String performFastAttack(Pokemon victim);
    
-   /*
+   /**
    * Retrieves victim Pokemon's type.
    * Determines if the attack is super effective or not effective
    * Calculates amount of HP to knock off victim
    * Performs beAttacked on victim
-   * @param Pokemon victim the Pokemon object being attacked
+   * @param victim The Pokemon object being attacked.
    * @return String "<species> performed <specialAttack> 
    * + <it <was super, wasn't very, was not> effective>" depending on type
    */
@@ -159,94 +198,108 @@ public abstract class Pokemon{
    
       
    /*** protected abstract methods, for use only within subclasses ***/
-   /*
-    * Reduces Pokemon's HP due to attack
-    * @param int points to reduce HP
+   /**
+    * Reduces Pokemon's HP due to attack.
+    * @param hit Points to reduce HP
     */
    protected abstract void beAttacked(int hit);
-
-   /*
-   * Use the type interface lists to set Pokemon
-   * Fast and Special Attacks
+  
+   /**
+   * Use type interface list to set Fast Attack.
    */
    protected abstract void chooseFastAttack();
+   /**
+   * Use type interface list to set Special Attack.
+   */
    protected abstract void chooseSpecialAttack();
-
+  
    
    /** Get Methods **/
    
-   /* returns Pokemon species
-    * @return String
+   /** 
+   * Gets the species.
+   * @return species The species string.
    */
-   public String getSpecies(){
+   public String getSpecies() {
       return species;
    }
    
-   /* returns Pokemon userdefined name
-    * @return String
+   /**
+   * Gets the user defined name.
+   * @return name The user-defined name, if set.
    */
-   public String getName(){
+   public String getName() {
       return name;
    }
-   /* returns Pokemon color
-    * @return String
+   /**
+   * Gets the type-dependent color.
+   * @return color The Pokemon's color.
    */
-   public String getColor(){
+   public String getColor() {
       return color;
    }
-   /* returns Pokemon height
-   * @return double
+   /** 
+   * Gets the height.
+   * @return height The Pokemon's height.
    */   
-   public double getHeight(){
+   public double getHeight() {
       return height;
    }
-   /* returns weight
-    * @return double
-   */   
-   public double getWeight(){
+   /**
+   * Gets the weight.
+   * @return weight The Pokemon's weight.
+   */ 
+   public double getWeight() {
       return weight;
    }
-   /* returns Pokemon number from Pokedex
-   * @return int
+   /**
+   * Gets the number from Pokedex.
+   * @return number This species' Pokedex number.
    */   
-   public int getNumber(){
+   public int getNumber() {
       return number;
    }
-   /* returns Pokemon primary type
-    * @return String
+   /**
+   * Gets the primary type.
+   * @return String representing this species' primary type.
    */   
-   public String getType1(){
+   public String getType1() {
       return type1;
    }
-   /* returns Pokemon secondary type
-    * @return String
-    * empty if no secondary type
+   /** 
+   * Gets the secondary type.
+   * @return String representing this  species' secondary type.
+   * empty String if no secondary type
    */   
-   public String getType2(){
+   public String getType2() {
       return type2;
    }
-   /* returns Pokemon Hit Power
-   * @return int
+   /**
+   * Gets the Hit Power.
+   * @return int This Pokemon's Hit Power.
    */   
-   public int getHP(){
+   public int getHP() {
       return hP;
    }
-  /* returns Pokemon Combat Power
-   * @return int
+   /**
+   * Gets the Combat Power.
+   * @return int This Pokemon's Combat Power
    */   
    public int getCP() {
       return cP;        
    }
-   /* returns fast/simple attack
-    * @return String
+   /**
+   * Gets the fast/simple attack name.
+   * @return String The name of the Fast Attack.
    */   
-   public String getFastAttack(){
+   public String getFastAttack() {
       return fastAttack;
    }   
-   /* returns special attack
-    * @return String
-   */   
-   public String getSpecialAttack(){
+   /**
+   * Gets the Special attack name.
+   * @return String The name of the Special Attack.
+   */  
+   public String getSpecialAttack() {
       return specialAttack;
    }   
    

@@ -33,7 +33,7 @@ public class CharmeleonTest {
    /* Constructor no nickName test - nickName same as name if not specified **/
    @Test public void noNickNameTest(){
       Pokemon p = new Charmeleon();
-      Assert.assertEquals("Name and nickName should be the same.", p.getName(), "Charmeleon");
+      Assert.assertEquals("Name and nickName should be the same but aren't.", p.getName(), "Charmeleon");
    
    }
    
@@ -47,7 +47,7 @@ public class CharmeleonTest {
             isInList = atk.equals(CHARM_FAST_ATTACKS[i]);
             i++;
       }
-      Assert.assertTrue("Charmeleon fast attack " + atk + " is fire type", isInList);
+      Assert.assertTrue("Charmeleon fast attack " + atk + " isn't fire type", isInList);
    }
    
    /* Is special attack in allowed attack list? */
@@ -60,7 +60,7 @@ public class CharmeleonTest {
             isInList = atk.equals(CHARM_SPECIAL_ATTACKS[i]);
             i++;
       }
-      Assert.assertTrue("Charmeleon special attack " + atk + " is fire type", isInList);
+      Assert.assertTrue("Charmeleon special attack " + atk + " isn't fire type", isInList);
    }
    
    /* testing toString method
@@ -71,7 +71,7 @@ public class CharmeleonTest {
       Pokemon p = new Charmeleon();
       int hP = p.getHP();
       int cP = p.getCP();
-      Assert.assertEquals("To string correct format",  
+      Assert.assertEquals("toString format isn't correct",  
          "Species: Charmeleon\nNumber: 005\nHeight: 1.1\nWeight: 19.0\nType: Fire\nHP: "+hP+"\nCP: "+cP+"\n", p.toString());
    }
    
@@ -79,7 +79,7 @@ public class CharmeleonTest {
       Pokemon p = new Charmeleon("Bob");
       int hP = p.getHP();
       int cP = p.getCP();
-      Assert.assertEquals("To string correct format",  
+      Assert.assertEquals("toString format isn't correct",  
          "Species: Charmeleon\nName: Bob\nNumber: 005\nHeight: 1.1\nWeight: 19.0\nType: Fire\nHP: "+hP+"\nCP: "+cP+"\n", p.toString());
    }
    
@@ -91,7 +91,7 @@ public class CharmeleonTest {
       Pokemon p2 = new Charmeleon();
       String pFA = p.getFastAttack();
 
-      Assert.assertEquals("Fast Attack Result String Correct",  
+      Assert.assertEquals("Fast Attack result String isn't correct",  
       "Charmeleon performed " + pFA + " on Charmeleon\n It was not very effective.",
        p.performFastAttack(p2));
 
@@ -104,7 +104,7 @@ public class CharmeleonTest {
       Pokemon p2 = new Squirtle();
       String pFA = p.getFastAttack();
 
-      Assert.assertEquals("Fast Attack Result String Correct",  
+      Assert.assertEquals("Fast Attack result String isn't correct",  
       "Charmeleon performed " + pFA + " on Squirtle\n It was not very effective.",
        p.performFastAttack(p2));
 
@@ -118,7 +118,7 @@ public class CharmeleonTest {
       Pokemon p2 = new Bulbasaur();
       String pFA = p.getFastAttack();
 
-      Assert.assertEquals("Fast Attack Result String Correct",  
+      Assert.assertEquals("Fast Attack result String isn't correct",  
       "Charmeleon performed " + pFA + " on Bulbasaur\n It was super effective!",
        p.performFastAttack(p2));
 
@@ -132,7 +132,7 @@ public class CharmeleonTest {
       Pokemon p2 = new Charmeleon();
       String pFA = p.getSpecialAttack();
 
-      Assert.assertEquals("Special Attack Result String Correct",  
+      Assert.assertEquals("Special Attack result String isn't correct",  
       "Charmeleon performed " + pFA + " on Charmeleon\n It was not very effective.",
        p.performSpecialAttack(p2));
 
@@ -145,7 +145,7 @@ public class CharmeleonTest {
       Pokemon p2 = new Squirtle();
       String pFA = p.getSpecialAttack();
 
-      Assert.assertEquals("Special Attack Result String Correct",  
+      Assert.assertEquals("Special Attack result String isn't correct",  
       "Charmeleon performed " + pFA + " on Squirtle\n It was not very effective.",
        p.performSpecialAttack(p2));
 
@@ -159,7 +159,7 @@ public class CharmeleonTest {
       Pokemon p2 = new Bulbasaur();
       String pFA = p.getSpecialAttack();
 
-      Assert.assertEquals("Special Attack Result String Correct",  
+      Assert.assertEquals("Special Attack result String isn't correct",  
       "Charmeleon performed " + pFA + " on Bulbasaur\n It was super effective!",
        p.performSpecialAttack(p2));
 

@@ -34,7 +34,7 @@ public class VenusaurTest {
    /* Constructor no nickName test - nickName same as name if not specified **/
    @Test public void noNickNameTest(){
       Pokemon p = new Venusaur();
-      Assert.assertEquals("Name and nickName should be the same.", p.getName(), "Venusaur");
+      Assert.assertEquals("Name and nickName should be the same but aren't.", p.getName(), "Venusaur");
    
    }
    
@@ -48,7 +48,7 @@ public class VenusaurTest {
             isInList = atk.equals(VENUS_FAST_ATTACKS[i]);
             i++;
       }
-      Assert.assertTrue("Venusaur fast attack " + atk + " is grass or poison", isInList);
+      Assert.assertTrue("Venusaur fast attack " + atk + " isn't grass or poison", isInList);
    }
    
    /* Is special attack in allowed attack list? */
@@ -61,7 +61,7 @@ public class VenusaurTest {
             isInList = atk.equals(VENUS_SPECIAL_ATTACKS[i]);
             i++;
       }
-      Assert.assertTrue("Venusaur special attack " + atk + " is grass or poison", isInList);
+      Assert.assertTrue("Venusaur special attack " + atk + " isn't grass or poison", isInList);
    }
    
    /* testing toString method
@@ -72,7 +72,7 @@ public class VenusaurTest {
       Pokemon p = new Venusaur();
       int hP = p.getHP();
       int cP = p.getCP();
-      Assert.assertEquals("To string correct format",  
+      Assert.assertEquals("toString format isn't correct",  
          "Species: Venusaur\nNumber: 003\nHeight: 2.0\nWeight: 100.0\nType: Grass | Poison\nHP: "+hP+"\nCP: "+cP+"\n",
           p.toString());
    }
@@ -81,7 +81,7 @@ public class VenusaurTest {
       Pokemon p = new Venusaur("Bob");
       int hP = p.getHP();
       int cP = p.getCP();
-      Assert.assertEquals("To string correct format",  
+      Assert.assertEquals("toString format isn't correct",  
          "Species: Venusaur\nName: Bob\nNumber: 003\nHeight: 2.0\nWeight: 100.0\nType: Grass | Poison\nHP: "+hP+"\nCP: "+cP+"\n",
           p.toString());
    }
@@ -99,11 +99,11 @@ public class VenusaurTest {
             i++;
       }
       if(pAtkGrass){
-         Assert.assertEquals("Fast Attack Result String Correct",  
+         Assert.assertEquals("Fast Attack result String isn't correct",  
          "Venusaur performed " + pFA + " on Venusaur\n It was not very effective.",
           p.performFastAttack(p2));
      }else{
-         Assert.assertEquals("Fast Attack Result String Correct",  
+         Assert.assertEquals("Fast Attack result String isn't correct",  
          "Venusaur performed " + pFA + " on Venusaur\n It was super effective!", p.performFastAttack(p2));
      }
    }
@@ -120,11 +120,11 @@ public class VenusaurTest {
             i++;
       }
       if(pAtkGrass){
-         Assert.assertEquals("Fast Attack Result String Correct",  
+         Assert.assertEquals("Fast Attack result String isn't correct",  
          "Venusaur performed " + pFA + " on Squirtle\n It was super effective!",
           p.performFastAttack(p2));
      }else{
-         Assert.assertEquals("Fast Attack Result String Correct",  
+         Assert.assertEquals("Fast Attack result String isn't correct",  
          "Venusaur performed " + pFA + " on Squirtle", p.performFastAttack(p2));
      }
    }
@@ -141,11 +141,11 @@ public class VenusaurTest {
             i++;
       }
       if(pAtkGrass){
-         Assert.assertEquals("Fast Attack Result String Correct",  
+         Assert.assertEquals("Fast Attack result String isn't correct",  
          "Venusaur performed " + pFA + " on Charmander\n It was not very effective.",
           p.performFastAttack(p2));
      }else{
-         Assert.assertEquals("Fast Attack Result String Correct",  
+         Assert.assertEquals("Fast Attack result String isn't correct",  
          "Venusaur performed " + pFA + " on Charmander", p.performFastAttack(p2));
      }
    }
@@ -163,11 +163,11 @@ public class VenusaurTest {
             i++;
       }
       if(pAtkGrass){
-         Assert.assertEquals("Special Attack Result String Correct",  
+         Assert.assertEquals("Special Attack result String isn't correct",  
          "Venusaur performed " + pSA + " on Venusaur\n It was not very effective.",
           p.performSpecialAttack(p2));
      }else{
-         Assert.assertEquals("Special Attack Result String Correct",  
+         Assert.assertEquals("Special Attack result String isn't correct",  
          "Venusaur performed " + pSA + " on Venusaur\n It was super effective!", p.performSpecialAttack(p2));
      }
    }
@@ -184,11 +184,11 @@ public class VenusaurTest {
             i++;
       }
      if(pAtkGrass){
-         Assert.assertEquals("Fast Attack Result String Correct",  
+         Assert.assertEquals("Fast Attack result String isn't correct",  
          "Venusaur performed " + pSA + " on Squirtle\n It was super effective!",
           p.performSpecialAttack(p2));
      }else{
-         Assert.assertEquals("Fast Attack Result String Correct",  
+         Assert.assertEquals("Fast Attack result String isn't correct",  
          "Venusaur performed " + pSA + " on Squirtle", p.performSpecialAttack(p2));
      }
    }
@@ -205,11 +205,11 @@ public class VenusaurTest {
             i++;
       }
       if(pAtkGrass){
-         Assert.assertEquals("Fast Attack Result String Correct",  
+         Assert.assertEquals("Fast Attack result String isn't correct",  
          "Venusaur performed " + pSA + " on Charmander\n It was not very effective.",
           p.performSpecialAttack(p2));
      }else{
-         Assert.assertEquals("Fast Attack Result String Correct",  
+         Assert.assertEquals("Fast Attack result String isn't correct",  
          "Venusaur performed " + pSA + " on Charmander", p.performSpecialAttack(p2));
      }
    }
@@ -222,31 +222,31 @@ public class VenusaurTest {
       double cpMult = cpMultiplier[0];
       int minHP = (int)(BASE_STAMINA * cpMult);
       Pokemon p = new Venusaur();
-      Assert.assertTrue("HP >= " + minHP,(minHP <= p.getHP())); 
+      Assert.assertTrue("HP not >= " + minHP,(minHP not >= p.getHP())); 
    }
    @Test public void hpRangeTest2(){
       double cpMult = cpMultiplier[0];
       int minHP = (int)(BASE_STAMINA * cpMult);
       Pokemon p = new Venusaur();
-      Assert.assertTrue("HP >= " + minHP,(minHP <= p.getHP()));  
+      Assert.assertTrue("HP not >= " + minHP,(minHP not >= p.getHP()));  
    }
    @Test public void hpRangeTest3(){
       double cpMult = cpMultiplier[0];
       int minHP = (int)(BASE_STAMINA * cpMult);
       Pokemon p = new Venusaur();
-      Assert.assertTrue("HP >= " + minHP,(minHP <= p.getHP()));  
+      Assert.assertTrue("HP not >= " + minHP,(minHP not >= p.getHP()));  
    }
    @Test public void hpRangeTest4(){
       double cpMult = cpMultiplier[0];
       int minHP = (int)(BASE_STAMINA * cpMult);
       Pokemon p = new Venusaur();
-      Assert.assertTrue("HP >= " + minHP,(minHP <= p.getHP())); 
+      Assert.assertTrue("HP not >= " + minHP,(minHP not >= p.getHP())); 
   }
    @Test public void hpRangeTest5(){
       double cpMult = cpMultiplier[0];
       int minHP = (int)(BASE_STAMINA * cpMult);
       Pokemon p = new Venusaur();
-      Assert.assertTrue("HP >= " + minHP,(minHP <= p.getHP())); 
+      Assert.assertTrue("HP not >= " + minHP,(minHP not >= p.getHP())); 
    }
    
    /*CP constructor test
@@ -256,26 +256,26 @@ public class VenusaurTest {
    @Test public void cpRangeTest1(){
       int minCP = 10;
       Pokemon p = new Venusaur();
-      Assert.assertTrue("CP " + p.getCP()+" <= " + minCP,(minCP <= p.getCP())); 
+      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP not >= p.getCP())); 
    }
    @Test public void cpRangeTest2(){
       int minCP = 10;
       Pokemon p = new Venusaur();
-      Assert.assertTrue("CP " + p.getCP()+" <= " + minCP,(minCP <= p.getCP()));  }  
+      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP not >= p.getCP()));  }  
    @Test public void cpRangeTest3(){
       int minCP = 10;
       Pokemon p = new Venusaur();
-      Assert.assertTrue("CP " + p.getCP()+" <= " + minCP,(minCP <= p.getCP())); 
+      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP not >= p.getCP())); 
    }   
    @Test public void cpRangeTest4(){
       int minCP = 10;
       Pokemon p = new Venusaur();
-      Assert.assertTrue("CP " + p.getCP()+" <= " + minCP,(minCP <= p.getCP())); 
+      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP not >= p.getCP())); 
    }
    @Test public void cpRangeTest5(){
       int minCP = 10;
       Pokemon p = new Venusaur();
-      Assert.assertTrue("CP " + p.getCP()+" <= " + minCP,(minCP <= p.getCP())); 
+      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP not >= p.getCP())); 
    }
 
 }
