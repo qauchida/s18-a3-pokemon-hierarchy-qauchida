@@ -7,7 +7,9 @@
 #### Code Review
  * 10 points review
  * 10 points reply
- * due Oct 9th.
+ * develop branch ready for review due Oct 2nd.
+
+---
 
 #### Part 2 
  * 150 points
@@ -20,14 +22,12 @@
 
 For this assignment, I've done part of the coding myself to give you something to start from. This will be a good experience for you to try to read someone else's code and understand what it is doing.
 
-Your task is to complete an Object Oriented Pokemon design for the Squirtle, Wartortle, Blastoise and the Charmander, Charmeleon, 
-Charizard Pokemon species families. This is described by the UML diagram below. The UML image file is also in the 
+Your task is to complete an Object Oriented Pokemon Class hierarchy for the Squirtle, Wartortle, Blastoise and the Charmander, Charmeleon, Charizard Pokemon species families. This is described by the UML diagram below. The UML image file is also in the 
 repository as PokemonUMLDiagram.png
 
 I have implemented everything in blue in the UML diagram. *Instructions continue below image*
 
-![alt text][uml]
-[uml]:https://github.com/ICSatKCC/PokemonObjectHierarchy/blob/master/PokemonUMLDiagram.png "Pokemon UML Diagram"
+![uml](https://github.com/ICSatKCC/PokemonObjectHierarchy/blob/master/PokemonUMLDiagram.png "Pokemon UML Diagram")
 ----
 What is included in this repository:
  * Pokemon.java - abstract superclass for all Pokemon species
@@ -46,7 +46,7 @@ What is included in this repository:
  * JUnit test files for all implemented species and those you are going to build:
   * BlastoiseTest, BulbasaurTest, CharizardTest, CharmanderTest, CharmeleonTest, IvysaurTest, SquirtleTest, VenusaurTest, and WartortleTest.java
   
- * TypeAttackEffectivenessChart.jpg - This shows the strength/weakness multipliers for different types. It should be used in your implementation of PerformFastAttack an,d PerformSpecialAttack methods.
+ * TypeAttackEffectivenessChart.jpg - This shows the strength/weakness multipliers for different types. It should be used in your implementation of PerformFastAttack and PerformSpecialAttack methods.
  
  * PokemonAttackPower.xlsx and .ods - Spreadsheet of fast and special attack names, types, powers. These are already in the required interfaces, but you'll need them to do the extra credit projects.
  
@@ -57,7 +57,7 @@ What is included in this repository:
 ----
 ## Assignments
 
-#### Part 1 due February 7th:
+#### Part 1 due September 27th:
  1. Clone the repository to your own computer. 
  2. Thoroughly examine the code I have given you and the UML diagram above. Try to figure out what I have done and how you can build the rest.
  2. Test my code using jGRASP Interactions. For example, stuff like this should work already:
@@ -81,19 +81,22 @@ s = v1.performFastAttack(b1);
 
 ---
 
-#### Part 2 due February 14th:
+#### Code Review Oct. 2nd
+ * Have your Part 2 (described below) most of the way finished for code reviewing.
+
+#### Part 2 due Oct.  9th:
  1. Write the rest of the Pokemon subclasses in the UML diagram
   3. Build Squirtle.java, Wartortle.java, and Blastoise.java first. They will be easiest because they're all the same type: water.
   4. Build Charmander.java and Charmaleon.java these are both the same type too: fire.
   5. Build Charizard which must implement an additional type interface: flying
   
- * The height, weight, and base attack, defense, and stamina stats (hover over bars for these) are here: [https://thesilphroad.com/research](https://thesilphroad.com/research) 
+ * The height, weight, and base attack, defense, and stamina stats for each species are here: [https://thesilphroad.com/catalog](https://thesilphroad.com/catalog) 
  
 ---
 
 
 ## Extra Credit
- * Due by the final due date of this Assignment: February 14th.
+ * Due by the final due date of this Assignment: October 9th.
 
  * 50 points.
  * Implement the interfaces and Pokemon subclasses for Eevee, Vaporeon, Jolteon, and Flareon. Pokemon numbers 133 - 136.
