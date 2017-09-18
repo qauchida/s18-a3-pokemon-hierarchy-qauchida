@@ -1,13 +1,17 @@
 # Assignment 3 - Pokemon Object Hierarchy
 #### Part 1
  * 50 points
- * due Feb 7th.
+ * due Sept 27th.
 
 ---
+#### Code Review
+ * 10 points review
+ * 10 points reply
+ * due Oct 9th.
 
 #### Part 2 
  * 150 points
- * due Feb 14th.
+ * due Oct 9th.
 
 ---
 
