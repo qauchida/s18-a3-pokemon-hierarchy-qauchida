@@ -174,31 +174,31 @@ public class WartortleTest {
       double cpMult = cpMultiplier[0];
       int minHP = (int)(BASE_STAMINA * cpMult);
       Pokemon p = new Wartortle();
-      Assert.assertTrue("HP not >= " + minHP,(minHP not >= p.getHP())); 
+      Assert.assertTrue("HP not >= " + minHP,(minHP <= p.getHP())); 
    }
    @Test public void hpRangeTest2(){
       double cpMult = cpMultiplier[0];
       int minHP = (int)(BASE_STAMINA * cpMult);
       Pokemon p = new Wartortle();
-      Assert.assertTrue("HP not >= " + minHP,(minHP not >= p.getHP()));  
+      Assert.assertTrue("HP not >= " + minHP,(minHP <= p.getHP()));  
    }
    @Test public void hpRangeTest3(){
       double cpMult = cpMultiplier[0];
       int minHP = (int)(BASE_STAMINA * cpMult);
       Pokemon p = new Wartortle();
-      Assert.assertTrue("HP not >= " + minHP,(minHP not >= p.getHP()));  
+      Assert.assertTrue("HP not >= " + minHP,(minHP <= p.getHP()));  
    }
    @Test public void hpRangeTest4(){
       double cpMult = cpMultiplier[0];
       int minHP = (int)(BASE_STAMINA * cpMult);
       Pokemon p = new Wartortle();
-      Assert.assertTrue("HP not >= " + minHP,(minHP not >= p.getHP())); 
+      Assert.assertTrue("HP not >= " + minHP,(minHP <= p.getHP())); 
   }
    @Test public void hpRangeTest5(){
       double cpMult = cpMultiplier[0];
       int minHP = (int)(BASE_STAMINA * cpMult);
       Pokemon p = new Wartortle();
-      Assert.assertTrue("HP not >= " + minHP,(minHP not >= p.getHP())); 
+      Assert.assertTrue("HP not >= " + minHP,(minHP <= p.getHP())); 
    }
    
    /*CP constructor test
@@ -208,25 +208,25 @@ public class WartortleTest {
    @Test public void cpRangeTest1(){
       int minCP = 10;
       Pokemon p = new Wartortle();
-      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP not >= p.getCP())); 
+      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP <= p.getCP())); 
    }
    @Test public void cpRangeTest2(){
       int minCP = 10;
       Pokemon p = new Wartortle();
-      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP not >= p.getCP()));  }  
+      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP <= p.getCP()));  }  
    @Test public void cpRangeTest3(){
       int minCP = 10;
       Pokemon p = new Wartortle();
-      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP not >= p.getCP())); 
+      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP <= p.getCP())); 
    }   
    @Test public void cpRangeTest4(){
       int minCP = 10;
       Pokemon p = new Wartortle();
-      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP not >= p.getCP())); 
+      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP <= p.getCP())); 
    }
    @Test public void cpRangeTest5(){
       int minCP = 10;
       Pokemon p = new Wartortle();
-      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP not >= p.getCP())); 
+      Assert.assertTrue("CP " + p.getCP()+" not >= " + minCP,(minCP <= p.getCP())); 
    }
 }
