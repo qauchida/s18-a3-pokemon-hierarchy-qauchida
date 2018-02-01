@@ -57,7 +57,7 @@ What is included in this repository:
 ----
 ## Assignments
 
-#### Part 1 due September 27th:
+#### Part 1 due February 8th:
  1. Clone the repository to your own computer. 
  2. Thoroughly examine the code I have given you and the UML diagram above. Try to figure out what I have done and how you can build the rest.
  2. Test my code using jGRASP Interactions. For example, stuff like this should work already:
@@ -71,20 +71,17 @@ String s = b1.toString();
 s = v1.performFastAttack(b1);
  ```
  3. Make a develop branch and push it to Github
-  * git branch develop
-  * git checkout develop
-  * Make at least one change so there is a difference between the develop and master branches.
-  * git push origin develop
+  * Make some change to the repository so there is a difference between the develop and master branches (EG: add one of the files you'll be coding up later).
  4. Make a Pull Request on GitHub.
-  * In the pull request write an outline of what your plan for coding the rest of the Pokemon subclasses in the UML diagram.
+  * In the pull request ***write an outline*** of what your plan for coding the rest of the Pokemon subclasses in the UML diagram.
   * This doesn't have to be perfect, you'll probably have to make changes to your plans while coding, I just want to see that you understand the provided code and are able to plan your additions to it.
 
 ---
 
-#### Code Review Oct. 2nd
- * Have your Part 2 (described below) most of the way finished for code reviewing.
+#### Code Review Feb 15th.
+ * Have your Part 2 (described below) as finished as possible for code reviewing. *This is a big assignment, with lots of code! You will probably need your reviewer's input to finish.**
 
-#### Part 2 due Oct.  9th:
+#### Part 2 due Feb 22nd:
  1. Write the rest of the Pokemon subclasses in the UML diagram
   3. Build Squirtle.java, Wartortle.java, and Blastoise.java first. They will be easiest because they're all the same type: water.
   4. Build Charmander.java and Charmaleon.java these are both the same type too: fire.
@@ -103,6 +100,7 @@ s = v1.performFastAttack(b1);
    * This is tricky because Eevee is the superclass for the other three, but Vaporeon, Jolteon, and Flareon are all different types and do not inherit Eevee's type. You may have to get creative/hackish with Eevee's Normal type to make this work. Just don't break the rest of the Pokemon!
    * Your Eevee family should work the same as the other Pokemon!
    
+ * Extra credit points will also be awarded for finding and fixing bugs in the starter code. Make sure to document it in your pull requests.
 ---
 
  
