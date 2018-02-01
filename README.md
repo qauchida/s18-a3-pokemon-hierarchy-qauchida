@@ -1,19 +1,19 @@
 # Assignment 3 - Pokemon Object Hierarchy
 #### Part 1
  * 50 points
- * due Sept 27th.
+ * due Feb 8th.
 
 ---
 #### Code Review
  * 10 points review
  * 10 points reply
- * develop branch ready for review due Oct 2nd.
+ * develop branch ready for review due Feb 15th.
 
 ---
 
 #### Part 2 
  * 150 points
- * due Oct 9th.
+ * due Feb 22nd.
 
 ---
 
@@ -90,18 +90,18 @@ s = v1.performFastAttack(b1);
   4. Build Charmander.java and Charmaleon.java these are both the same type too: fire.
   5. Build Charizard which must implement an additional type interface: flying
   
- * The height, weight, and base attack, defense, and stamina stats for each species are here: [https://thesilphroad.com/catalog](https://thesilphroad.com/catalog) 
+ * The height, weight, and base attack, defense, and stamina stats for each species are here: [https://thesilphroad.com/catalog](https://thesilphroad.com/catalog) (click "All Species")
  
 ---
 
 
 ## Extra Credit
- * Due by the final due date of this Assignment: October 9th.
+ * Due by the final due date of this Assignment: Feb 22.
 
  * 50 points.
  * Implement the interfaces and Pokemon subclasses for Eevee, Vaporeon, Jolteon, and Flareon. Pokemon numbers 133 - 136.
    * This is tricky because Eevee is the superclass for the other three, but Vaporeon, Jolteon, and Flareon are all different types and do not inherit Eevee's type. You may have to get creative/hackish with Eevee's Normal type to make this work. Just don't break the rest of the Pokemon!
-   * Your Eevee family should also work with the ArrayList of Pokemon!
+   * Your Eevee family should work the same as the other Pokemon!
    
 ---
 
