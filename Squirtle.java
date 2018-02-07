@@ -5,7 +5,7 @@ import java.util.*;
 *squirtle
 */
 public class Squirtle extends Pokemon implements WaterType{
-public Squirtle(){
-
-}
+   public Squirtle(){
+   
+   }
 } //close class
