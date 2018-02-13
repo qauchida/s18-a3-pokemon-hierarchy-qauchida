@@ -21,7 +21,7 @@ public class Squirtle extends Pokemon implements WaterType{
    */
    public Squirtle(){
       super("Squirtle","Squirtle", 7, WATER_COLOR, 0.5, 9.0, 
-      WATER_TYPE, ATTACK, DEFENSE, STAMINA);
+      WATER_TYPE,"", ATTACK, DEFENSE, STAMINA);
    chooseFastAttack();
    chooseSpecialAttack();
    } // close constructor
@@ -30,7 +30,7 @@ public class Squirtle extends Pokemon implements WaterType{
    */
    public Squirtle(String name){
       super("Squirtle","Squirtle", 7, WATER_COLOR, 0.5, 9.0, 
-      WATER_TYPE, ATTACK, DEFENSE, STAMINA);
+      WATER_TYPE, "",ATTACK, DEFENSE, STAMINA);
    chooseFastAttack();
    chooseSpecialAttack();
    } // close constructor
@@ -39,7 +39,7 @@ public class Squirtle extends Pokemon implements WaterType{
        double ht, double wt, int baseAttackPwr, int baseDefensePwr, 
        int baseStaminaPwr) {
        
-      super(species, name, num, GRASS_COLOR, ht, wt, WATER_TYPE, 
+      super(species, name, num, WATER_COLOR, ht, wt, WATER_TYPE,"", 
       baseAttackPwr, baseDefensePwr, baseStaminaPwr);
       //pick Attacks
       //can happen here because all subclasses are same types as Bulbasaur
@@ -110,6 +110,15 @@ public class Squirtle extends Pokemon implements WaterType{
    * @param victim the Pokemon being attacked.
    * @return String explaining attack and effectiveness.
    */
+   protected void chooseSpecialAttack() {
+     //randomly choose to get grass or poison attack
+      Random randGen = new Random();
+      int index;
+      //set type choice boolean
+      specialIsWater = randGen.nextBoolean();
+      }
+
+   
    public String performSpecialAttack(Pokemon victim) {
       Random rand = new Random();
       double damage = 0.0;
