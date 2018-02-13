@@ -21,44 +21,44 @@ public class Squirtle extends Pokemon implements WaterType{
    */
    public Squirtle(){
       super("Squirtle","Squirtle", 7, WATER_COLOR, 0.5, 9.0, 
-      WATER_TYPE,"", ATTACK, DEFENSE, STAMINA);
-   chooseFastAttack();
-   chooseSpecialAttack();
+         WATER_TYPE,"", ATTACK, DEFENSE, STAMINA);
+      chooseFastAttack();
+      chooseSpecialAttack();
    } // close constructor
    
       /**with name constructor 
    */
    public Squirtle(String name){
       super("Squirtle","Squirtle", 7, WATER_COLOR, 0.5, 9.0, 
-      WATER_TYPE, "",ATTACK, DEFENSE, STAMINA);
-   chooseFastAttack();
-   chooseSpecialAttack();
+         WATER_TYPE, "",ATTACK, DEFENSE, STAMINA);
+      chooseFastAttack();
+      chooseSpecialAttack();
    } // close constructor
    
-      protected Squirtle(String species, String name, int num, 
+   protected Squirtle(String species, String name, int num, 
        double ht, double wt, int baseAttackPwr, int baseDefensePwr, 
        int baseStaminaPwr) {
        
       super(species, name, num, WATER_COLOR, ht, wt, WATER_TYPE,"", 
-      baseAttackPwr, baseDefensePwr, baseStaminaPwr);
+         baseAttackPwr, baseDefensePwr, baseStaminaPwr);
       //pick Attacks
       //can happen here because all subclasses are same types as Bulbasaur
       chooseFastAttack();
       chooseSpecialAttack();
    }
    
-    protected void chooseFastAttack() {
+   protected void chooseFastAttack() {
       //randomly choose to get grass or poison attack
       Random randGen = new Random();
       int index;
       //set attack type boolean
       fastIsWater = randGen.nextBoolean();
           
-         index = randGen.nextInt(WATER_FAST_ATTACKS.length);
-         fastAttack = WATER_FAST_ATTACKS[index];
-         fastAttackPower = WATER_FAST_ATK_POWER[index];
-
-      }
+      index = randGen.nextInt(WATER_FAST_ATTACKS.length);
+      fastAttack = WATER_FAST_ATTACKS[index];
+      fastAttackPower = WATER_FAST_ATK_POWER[index];
+   
+   }
    //fast attack 
    public String performFastAttack(Pokemon victim) {
       
@@ -74,14 +74,14 @@ public class Squirtle extends Pokemon implements WaterType{
       modifier = (double) (rand.nextInt(16) + 85) / 100.0;      
       s = name + " performed " + fastAttack + " on " + victim.getSpecies();
       //check effectiveness of attack
-      if (fastIsWater) { //if attack is grass-type
+      if (fastIsWater) { //if attack is water-type
          if (vType.equals("Ground") || vType.equals("Rock") 
              || vType.equals("Fire")) {
-            
             s = s + "\n It was super effective!";
-            modifier = modifier * 2.0;          
-         } else if (vType.equals("Ice") || vType.equals("Dragon") 
-             || vType.equals("Grass") || vType.equals("Dragon")) { 
+            modifier = modifier * 2.0; 
+                     
+         } else if (  vType.equals("Water") || vType.equals("Dragon") || 
+             vType.equals("Grass")|| vType.equals("Dragon")){ 
             s = s + "\n It was not very effective.";
             modifier = modifier * 0.5;
          }
@@ -116,7 +116,7 @@ public class Squirtle extends Pokemon implements WaterType{
       int index;
       //set type choice boolean
       specialIsWater = randGen.nextBoolean();
-      }
+   }
 
    
    public String performSpecialAttack(Pokemon victim) {
@@ -139,29 +139,15 @@ public class Squirtle extends Pokemon implements WaterType{
              
             s = s + "\n It was super effective!";
             modifier = modifier * 2.0;          
-         } else if (vType.equals("Ice") || vType.equals("Dragon")
+         } else if (vType.equals("Water") || vType.equals("Dragon")
              || vType.equals("Grass") || vType.equals("Dragon"))
-        { 
+         { 
             
             s = s + "\n It was not very effective.";
             modifier = modifier * 0.5;
-         }
-      } else { //is poison attack
-         if (vType.equals("Fire") || vType.equals("Fairy")) {
-            s = s + "\n It was super effective!";
-            modifier = modifier * 2.0;
-            
-         } else if (vType.equals("Rock") || vType.equals("Ghost") 
-             || vType.equals("Ground") || vType.equals("Poison")) {
-             
-            s = s + "\n It was not very effective.";
-            modifier = modifier * 0.5;
-         } else if (vType.equals("Steel")) { 
-            s = s + "\n It had no effect.";
-            modifier = 0; //will zero whole calculation
          }
       }
-
+     
       //check for same types for bonus
       if (type1.equals(vType) && type2.equals(victim.getType2())) {
          modifier = modifier *  1.5;
