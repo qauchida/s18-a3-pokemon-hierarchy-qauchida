@@ -125,15 +125,15 @@ public abstract class Pokemon {
    private void calculateHPAndCP() {
       //calculate multiplier for stats
       //added conditional: if level>=2/!=0/staminaPower>=10 02/13/18
-      if (level >=2 && level != 0){
+      if (level >=2 && staminaPower >= 8){
       double cpMult = cpMultiplier[(int) level - 1];
       
       hP = staminaPower;
       cP = (int) ((attackPower * Math.pow(defensePower, 0.5) 
          * Math.pow(staminaPower, 0.5) * Math.pow(cpMult, 2)) / 10.0);
-      if (cP >10 || hP>15){
+      if (cP <10){
       cP = 10;
-      hP = 15;}
+      }
    
    }
    }
