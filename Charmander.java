@@ -5,7 +5,7 @@ import java.util.*;
 *makes charmander
 */
 
-public class Charmander extends Pokemon implements FireType{
+public class Charmander extends Pokemon implements FireType, NullType{
 
    static final int ATTACK = 94;
    static final int DEFENSE = 122;
@@ -18,7 +18,7 @@ public class Charmander extends Pokemon implements FireType{
    */
    public Charmander(){
       super("Charmander","Charmander", 4, FIRE_COLOR, 0.6, 8.5, 
-         FIRE_TYPE,"", ATTACK, DEFENSE, STAMINA);
+         FIRE_TYPE, NULL_TYPE,ATTACK, DEFENSE, STAMINA);
       chooseFastAttack();
       chooseSpecialAttack();
    } // close constructor
@@ -27,7 +27,7 @@ public class Charmander extends Pokemon implements FireType{
    */
    public Charmander(String name){
       super("Charmander",name, 4, FIRE_COLOR, 0.6, 8.5, 
-         FIRE_TYPE, "",ATTACK, DEFENSE, STAMINA);
+         FIRE_TYPE, NULL_TYPE,ATTACK, DEFENSE, STAMINA);
       chooseFastAttack();
       chooseSpecialAttack();
    } // close constructor

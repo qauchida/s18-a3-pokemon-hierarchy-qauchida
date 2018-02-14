@@ -15,14 +15,15 @@ public class Charizard extends Charmeleon implements FlyingType{
    
    /** Constructor with no name. */
    public Charizard() {
-      super("Charizard", "Charizard", 6, 1.7, 90.5, BASE_ATTACK_POWER, 
+      super("Charizard", "Charizard", 6, 1.7, 90.5, 
+          BASE_ATTACK_POWER, 
           BASE_DEFENSE_POWER, BASE_STAMINA_POWER);   
    }
    /** Constructor with name.
    * @param name The user-defined name.
    */
    public Charizard(String name) {
-         super("Charizard", name, 6, 1.7, 90.5, BASE_ATTACK_POWER, 
+         super("Charizard", name, 6, 1.7, 90.5,BASE_ATTACK_POWER, 
             BASE_DEFENSE_POWER, BASE_STAMINA_POWER);
    }
 
