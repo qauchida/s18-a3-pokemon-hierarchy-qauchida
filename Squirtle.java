@@ -29,7 +29,7 @@ public class Squirtle extends Pokemon implements WaterType{
       /**with name constructor 
    */
    public Squirtle(String name){
-      super("Squirtle","Squirtle", 7, WATER_COLOR, 0.5, 9.0, 
+      super("Squirtle",name, 7, WATER_COLOR, 0.5, 9.0, 
          WATER_TYPE, "",ATTACK, DEFENSE, STAMINA);
       chooseFastAttack();
       chooseSpecialAttack();
