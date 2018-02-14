@@ -80,7 +80,7 @@ public class Squirtle extends Pokemon implements WaterType{
             s = s + "\n It was super effective!";
             modifier = modifier * 2.0; 
                      
-         } else if ( vType.equals("Water") || 
+         } else if ( vType.equals("Water") || vType.equals("Dragon") ||
              vType.equals("Grass")|| vType.equals("Dragon")){ 
             s = s + "\n It was not very effective.";
             modifier = modifier * 0.5;
@@ -128,6 +128,7 @@ public class Squirtle extends Pokemon implements WaterType{
       
       String s = "";
       String vType = victim.getType1();
+      String vType2 = victim.getType2();
       
       //random modifier .85 - 1.00
       modifier = (double) (rand.nextInt(16) + 85) / 100.0;       
@@ -139,7 +140,8 @@ public class Squirtle extends Pokemon implements WaterType{
              
             s = s + "\n It was super effective!";
             modifier = modifier * 2.0;          
-         } if (vType.equals("Water") || vType.equals("Water") || vType.equals("Dragon"))
+         } if (vType.equals("Water") || vType.equals("Dragon")|| vType.equals("Grass")
+         ||vType2.equals("Grass") || vType2.equals("Dragon") || vType2.equals("Water"))
          
          {    
             s = s + "\n It was not very effective.";
