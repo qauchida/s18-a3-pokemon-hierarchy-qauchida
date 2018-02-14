@@ -80,7 +80,7 @@ public class Squirtle extends Pokemon implements WaterType{
             s = s + "\n It was super effective!";
             modifier = modifier * 2.0; 
                      
-         } else if (  vType.equals("Water") || 
+         } else if ( vType.equals("Water") || 
              vType.equals("Grass")|| vType.equals("Dragon")){ 
             s = s + "\n It was not very effective.";
             modifier = modifier * 0.5;
