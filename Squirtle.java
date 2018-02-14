@@ -41,14 +41,12 @@ public class Squirtle extends Pokemon implements WaterType{
        
       super(species, name, num, WATER_COLOR, ht, wt, WATER_TYPE,"", 
          baseAttackPwr, baseDefensePwr, baseStaminaPwr);
-      //pick Attacks
-      //can happen here because all subclasses are same types as Bulbasaur
+
       chooseFastAttack();
       chooseSpecialAttack();
    }
    
    protected void chooseFastAttack() {
-      //randomly choose to get grass or poison attack
       Random randGen = new Random();
       int index;
       //set attack type boolean
@@ -94,21 +92,9 @@ public class Squirtle extends Pokemon implements WaterType{
       victim.beAttacked((int) damage);
       return s;
    }
-   
-  /**
-   * Game-play special attack simulation.
-   * Creates an output String stating attack details
-   * checks for weakness/strength adjustment based on 
-   * victim Pokemon's type and attack type
-   * (only need to check latter for dual-type)
-   * uses Damage formula from here: 
-   * http://bulbapedia.bulbagarden.net/wiki/Damage
-   * Calls beAttacked method on attacked victim.
-   * @param victim the Pokemon being attacked.
-   * @return String explaining attack and effectiveness.
-   */
+
    protected void chooseSpecialAttack() {
-     //randomly choose to get grass or poison attack
+    
       Random randGen = new Random();
       int index;
       //set type choice boolean

@@ -17,7 +17,7 @@ public class Charmander extends Pokemon implements FireType{
    /**no name constructor 
    */
    public Charmander(){
-      super("Charmander","Charmander", 7, FIRE_COLOR, 0.5, 9.0, 
+      super("Charmander","Charmander", 4, FIRE_COLOR, 0.6, 8.5, 
          FIRE_TYPE,"", ATTACK, DEFENSE, STAMINA);
       chooseFastAttack();
       chooseSpecialAttack();
@@ -26,7 +26,7 @@ public class Charmander extends Pokemon implements FireType{
       /**with name constructor 
    */
    public Charmander(String name){
-      super("Charmander","Charmander", 7, FIRE_COLOR, 0.5, 9.0, 
+      super("Charmander",name, 4, FIRE_COLOR, 0.6, 8.5, 
          FIRE_TYPE, "",ATTACK, DEFENSE, STAMINA);
       chooseFastAttack();
       chooseSpecialAttack();
@@ -66,23 +66,27 @@ public class Charmander extends Pokemon implements FireType{
       
       String s = "";
       String vType = victim.getType1();
+      String vType2 = victim.getType2();
       
       //random modifier .85 - 1.00
       modifier = (double) (rand.nextInt(16) + 85) / 100.0;      
       s = name + " performed " + fastAttack + " on " + victim.getSpecies();
       //check effectiveness of attack
-      if (fastIsFire) { //if attack is grass-type
-         if (vType.equals("Grass") || vType.equals("Ice") 
-             || vType.equals("Bug")) {
+      if (vType.equals("Grass") || vType.equals("Ice") 
+             || vType.equals("Bug")||vType2.equals("Grass")
+             || vType2.equals("Bug") || vType2.equals("Ice")) {
             
-            s = s + "\n It was super effective!";
-            modifier = modifier * 2.0;          
-         } else if (vType.equals("Water")
-             || vType.equals("Ground") || vType.equals("Dragon")) { 
-            s = s + "\n It was not very effective.";
-            modifier = modifier * 0.5;
-         }
+         s = s + "\n It was super effective!";
+         modifier = modifier * 2.0;          
       } 
+      if (vType.equals("Water")||vType2.equals("Water")
+         ||vType2.equals("Rock")||vType2.equals("Dragon")
+             || vType.equals("Rock") || vType.equals("Dragon")
+             || vType.equals("Fire")|| vType2.equals("Fire")) { 
+         s = s + "\n It was not very effective.";
+         modifier = modifier * 0.5;
+      }
+      
       //check for same types for bonus
       if (type1.equals(vType) && type2.equals(victim.getType2())) {
          modifier = modifier *  1.5;
@@ -113,6 +117,11 @@ public class Charmander extends Pokemon implements FireType{
       int index;
       //set type choice boolean
       specialIsFire = randGen.nextBoolean();
+      
+      index = randGen.nextInt(FIRE_SPECIAL_ATTACKS.length);
+      specialAttack = FIRE_SPECIAL_ATTACKS[index];
+      specialAttackPower = FIRE_SPECIAL_ATK_POWER[index];
+   
    }
 
    
@@ -130,34 +139,20 @@ public class Charmander extends Pokemon implements FireType{
       s = name + " performed " + specialAttack + " on " + victim.getSpecies();
       
       //check effectiveness of attack
-      if (specialIsFire) { //if attack is water-type
-         if (vType.equals("Bug") || vType.equals("Grass") 
+      if (vType.equals("Bug") || vType.equals("Grass") 
              || vType.equals("Ice")) {
              
-            s = s + "\n It was super effective!";
-            modifier = modifier * 2.0;          
-         } else if (vType.equals("Water") || vType.equals("Dragon")
-             || vType.equals("Ground") || vType.equals("Dragon"))
-         { 
+         s = s + "\n It was super effective!";
+         modifier = modifier * 2.0;          
+      } else if (vType.equals("Water") || vType.equals("Dragon")
+             || vType.equals("Rock") || vType.equals("Fire"))
+      { 
             
-            s = s + "\n It was not very effective.";
-            modifier = modifier * 0.5;
-         }
-      } else { //is poison attack
-         if (vType.equals("Fire") || vType.equals("Fairy")) {
-            s = s + "\n It was super effective!";
-            modifier = modifier * 2.0;
-            
-         } else if (vType.equals("Rock") || vType.equals("Ghost") 
-             || vType.equals("Ground") || vType.equals("Poison")) {
-             
-            s = s + "\n It was not very effective.";
-            modifier = modifier * 0.5;
-         } else if (vType.equals("Steel")) { 
-            s = s + "\n It had no effect.";
-            modifier = 0; //will zero whole calculation
-         }
+         s = s + "\n It was not very effective.";
+         modifier = modifier * 0.5;
       }
+      
+     
    
       //check for same types for bonus
       if (type1.equals(vType) && type2.equals(victim.getType2())) {
