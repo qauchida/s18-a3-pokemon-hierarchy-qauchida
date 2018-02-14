@@ -5,18 +5,21 @@ import java.util.*;
 *Eevee
 */
 
-public class Eevee extends Pokemon implements NormalType{
-
+public class Eevee extends Pokemon implements NormalType {
+   /**base attack power.*/
    static final int ATTACK = 104;
+   /**base defense power.*/
    static final int DEFENSE = 121;
+   /**base stamina power.*/
    static final int STAMINA = 110;
 
+   /***/
    protected boolean fastIsNormal = true;
-
+   /***/
    protected boolean specialIsNormal = true;
 
 //constructor w/o name
-   public Eevee(){
+   public Eevee() {
       super("Eevee", "Eevee", 133, NORMAL_COLOR, 0.3, 6.5,
          NORMAL_TYPE, "",ATTACK, DEFENSE, STAMINA);
    
@@ -26,7 +29,7 @@ public class Eevee extends Pokemon implements NormalType{
    }
 
 //constructor with name
-   public Eevee (String name){
+   public Eevee(String name) {
       super("Eevee", name, 133, NORMAL_COLOR, 0.3, 6.5,
          NORMAL_TYPE, "", ATTACK, DEFENSE, STAMINA);
    
@@ -43,7 +46,7 @@ public class Eevee extends Pokemon implements NormalType{
          "", baseAttackPwr, baseDefensePwr, baseStaminaPwr);
    }
    
-   protected void chooseFastAttack(){
+   protected void chooseFastAttack() {
       Random ranNum = new Random();
       int index;
       fastIsNormal = ranNum.nextBoolean();
@@ -53,7 +56,7 @@ public class Eevee extends Pokemon implements NormalType{
    
    }
    
-   protected void chooseSpecialAttack(){
+   protected void chooseSpecialAttack() {
       Random ranNum = new Random();
       int index;
       specialIsNormal = ranNum.nextBoolean();
@@ -63,7 +66,7 @@ public class Eevee extends Pokemon implements NormalType{
          
    }
 
-   public String performFastAttack(Pokemon victim){
+   public String performFastAttack(Pokemon victim) {
    
       Random rand = new Random();
       double damage = 0.0;
@@ -96,7 +99,7 @@ public class Eevee extends Pokemon implements NormalType{
    
    } //close performFastAttack
    
-   public String performSpecialAttack(Pokemon victim){
+   public String performSpecialAttack(Pokemon victim) {
    
       Random rand = new Random();
       double damage = 0.0;
@@ -131,7 +134,7 @@ public class Eevee extends Pokemon implements NormalType{
    
    } //close performSpecialAttack
    
-   protected void beAttacked(int damage){
+   protected void beAttacked(int damage) {
    
       damage = damage/defensePower;
    
