@@ -74,7 +74,7 @@ public class Squirtle extends Pokemon implements WaterType{
       modifier = (double) (rand.nextInt(16) + 85) / 100.0;      
       s = name + " performed " + fastAttack + " on " + victim.getSpecies();
       //check effectiveness of attack
-      if (fastIsWater) { //if attack is water-type
+      
          if (vType.equals("Ground") || vType.equals("Rock") 
              || vType.equals("Fire")) {
             s = s + "\n It was super effective!";
@@ -85,11 +85,8 @@ public class Squirtle extends Pokemon implements WaterType{
             s = s + "\n It was not very effective.";
             modifier = modifier * 0.5;
          }
-      } 
-      //check for same types for bonus
-      if (type1.equals(vType) && type2.equals(victim.getType2())) {
-         modifier = modifier *  1.5;
-      }
+       
+      
       //bulbapedia damage formula:
       damage = (((2 * level) + 10) / damageDivisor) 
          * attackPower * (specialAttackPower + 2) * modifier;      
@@ -116,6 +113,10 @@ public class Squirtle extends Pokemon implements WaterType{
       int index;
       //set type choice boolean
       specialIsWater = randGen.nextBoolean();
+      index = randGen.nextInt(WATER_SPECIAL_ATTACKS.length);
+      specialAttack = WATER_SPECIAL_ATTACKS[index];
+      specialAttackPower = WATER_SPECIAL_ATK_POWER[index];
+
    }
 
    
@@ -133,20 +134,18 @@ public class Squirtle extends Pokemon implements WaterType{
       s = name + " performed " + specialAttack + " on " + victim.getSpecies();
       
       //check effectiveness of attack
-      if (specialIsWater) { //if attack is water-type
-         if (vType.equals("Ground") || vType.equals("Rock") 
-             || vType.equals("Fire")) {
+               if (vType.equals("Fire") || vType.equals("Rock") 
+             || vType.equals("Ground")) {
              
             s = s + "\n It was super effective!";
             modifier = modifier * 2.0;          
-         } else if (vType.equals("Water") || vType.equals("Dragon")
-             || vType.equals("Grass") || vType.equals("Dragon"))
-         { 
-            
+         } if (vType.equals("Water") || vType.equals("Water") || vType.equals("Dragon"))
+         
+         {    
             s = s + "\n It was not very effective.";
             modifier = modifier * 0.5;
          }
-      }
+      
      
       //check for same types for bonus
       if (type1.equals(vType) && type2.equals(victim.getType2())) {
