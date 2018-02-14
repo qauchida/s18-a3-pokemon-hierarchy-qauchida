@@ -131,7 +131,7 @@ public abstract class Pokemon {
       hP = staminaPower;
       cP = (int) ((attackPower * Math.pow(defensePower, 0.5) 
          * Math.pow(staminaPower, 0.5) * Math.pow(cpMult, 2)) / 10.0);
-      if (cP <10){
+      if (cP < 10){
       cP = 10;
       }
    
