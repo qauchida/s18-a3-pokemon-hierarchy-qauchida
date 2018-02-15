@@ -5,7 +5,7 @@ import java.util.*;
 *Squirtle
 */
 
-public class Squirtle extends Pokemon implements WaterType{
+public class Squirtle extends Pokemon implements WaterType,NullType{
 
 /**
 *declare base stats as constants
@@ -21,7 +21,7 @@ public class Squirtle extends Pokemon implements WaterType{
    */
    public Squirtle(){
       super("Squirtle","Squirtle", 7, WATER_COLOR, 0.5, 9.0, 
-         WATER_TYPE,"", ATTACK, DEFENSE, STAMINA);
+         WATER_TYPE,NULL_TYPE, ATTACK, DEFENSE, STAMINA);
       chooseFastAttack();
       chooseSpecialAttack();
    } // close constructor
@@ -30,7 +30,7 @@ public class Squirtle extends Pokemon implements WaterType{
    */
    public Squirtle(String name){
       super("Squirtle",name, 7, WATER_COLOR, 0.5, 9.0, 
-         WATER_TYPE, "",ATTACK, DEFENSE, STAMINA);
+         WATER_TYPE, NULL_TYPE, ATTACK, DEFENSE, STAMINA);
       chooseFastAttack();
       chooseSpecialAttack();
    } // close constructor

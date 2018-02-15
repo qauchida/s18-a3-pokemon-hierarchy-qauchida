@@ -18,7 +18,7 @@ public class Charmander extends Pokemon implements FireType, NullType{
    */
    public Charmander(){
       super("Charmander","Charmander", 4, FIRE_COLOR, 0.6, 8.5, 
-         FIRE_TYPE, NULL_TYPE,ATTACK, DEFENSE, STAMINA);
+         FIRE_TYPE, "",ATTACK, DEFENSE, STAMINA);
       chooseFastAttack();
       chooseSpecialAttack();
    } // close constructor
@@ -27,16 +27,16 @@ public class Charmander extends Pokemon implements FireType, NullType{
    */
    public Charmander(String name){
       super("Charmander",name, 4, FIRE_COLOR, 0.6, 8.5, 
-         FIRE_TYPE, NULL_TYPE,ATTACK, DEFENSE, STAMINA);
+         FIRE_TYPE, "",ATTACK, DEFENSE, STAMINA);
       chooseFastAttack();
       chooseSpecialAttack();
    } // close constructor
    
    protected Charmander(String species, String name, int num, 
-       double ht, double wt, int baseAttackPwr, int baseDefensePwr, 
+       double ht, double wt,String FIRE_TYPE,String NULL_TYPE, int baseAttackPwr, int baseDefensePwr, 
        int baseStaminaPwr) {
        
-      super(species, name, num, FIRE_COLOR, ht, wt, FIRE_TYPE,"", 
+      super(species, name, num, FIRE_COLOR, ht, wt, FIRE_TYPE,NULL_TYPE,  
          baseAttackPwr, baseDefensePwr, baseStaminaPwr);
       //pick Attacks
       //can happen here because all subclasses are same types as Bulbasaur
