@@ -5,7 +5,7 @@ import java.util.*;
 *Eevee
 */
 
-public class Eevee extends Pokemon implements NormalType {
+public class Eevee extends Pokemon implements NormalType,NullType {
    /**base attack power.*/
    static final int ATTACK = 104;
    /**base defense power.*/
@@ -21,7 +21,7 @@ public class Eevee extends Pokemon implements NormalType {
 //constructor w/o name
    public Eevee() {
       super("Eevee", "Eevee", 133, NORMAL_COLOR, 0.3, 6.5,
-         NORMAL_TYPE, "",ATTACK, DEFENSE, STAMINA);
+         NORMAL_TYPE, NULL_TYPE,ATTACK, DEFENSE, STAMINA);
    
       chooseFastAttack();
       chooseSpecialAttack(); 
@@ -31,7 +31,7 @@ public class Eevee extends Pokemon implements NormalType {
 //constructor with name
    public Eevee(String name) {
       super("Eevee", name, 133, NORMAL_COLOR, 0.3, 6.5,
-         NORMAL_TYPE, "", ATTACK, DEFENSE, STAMINA);
+         NORMAL_TYPE, NULL_TYPE, ATTACK, DEFENSE, STAMINA);
    
       chooseFastAttack();
       chooseSpecialAttack();
@@ -39,11 +39,11 @@ public class Eevee extends Pokemon implements NormalType {
    }
 
    protected Eevee(String species, String name, int num, 
-       double ht, double wt, int baseAttackPwr, int baseDefensePwr, 
+       double ht, double wt,String NORMAL_TYPE, String NULL_TYPE, int baseAttackPwr, int baseDefensePwr, 
        int baseStaminaPwr) {
        
       super(species, name, num, NORMAL_COLOR, ht, wt, NORMAL_TYPE, 
-         "", baseAttackPwr, baseDefensePwr, baseStaminaPwr);
+         NULL_TYPE, baseAttackPwr, baseDefensePwr, baseStaminaPwr);
    }
    
    protected void chooseFastAttack() {
