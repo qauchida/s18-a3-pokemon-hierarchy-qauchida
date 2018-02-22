@@ -6,8 +6,20 @@
 
 public class Jolteon extends Eevee implements ElectricType, NullType{
 
+   static final int ATTACK = 232;
+   /**base defense power.*/
+   static final int DEFENSE = 201;
+   /**base stamina power.*/
+   static final int STAMINA = 130;
+
+   /***/
+   protected boolean fastIsNormal = true;
+   /***/
+   protected boolean specialIsNormal = true;
+
+
    public Jolteon() {
-      super("Jolteon", "Jolteon", 133, ELECTRIC_COLOR, 0.3, 6.5,
+      super("Jolteon", "Jolteon", 135, ELECTRIC_COLOR, 0.8,24.5,
          ELECTRIC_TYPE, NULL_TYPE,ATTACK, DEFENSE, STAMINA);
    
       chooseFastAttack();
@@ -17,7 +29,7 @@ public class Jolteon extends Eevee implements ElectricType, NullType{
 
 //constructor with name
    public Jolteon(String name) {
-      super("Jolteon", name, 133, ELECTRIC_COLOR, 0.3, 6.5,
+      super("Jolteon", name, 135, ELECTRIC_COLOR, 0.8, 24.5,
          ELECTRIC_TYPE, NULL_TYPE, ATTACK, DEFENSE, STAMINA);
    
       chooseFastAttack();
@@ -104,10 +116,11 @@ public class Jolteon extends Eevee implements ElectricType, NullType{
              
          s = s + "\n It was not very effective.";
          modifier = modifier * .5;          
-      } if(vType.equals(vType.equals("Water"))){
+      } 
+      if(vType.equals(vType.equals("Water"))){
       
-      s = s + "\n It was super effective!";
-      modifier = modifier * 2.0;
+         s = s + "\n It was super effective!";
+         modifier = modifier * 2.0;
       
       }else if (vType.equals("Electric") ) { 
             
