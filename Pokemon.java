@@ -97,10 +97,10 @@ public abstract class Pokemon {
       this.type2 = type2;
       
       //generate initial level
-      this.level = (double) 1 + randGen.nextInt(39);
+      this.level = (double) 1 + randGen.nextInt(40);
    
       //calculate multiplier for stats
-      cpMult = cpMultiplier[(int) level];
+      cpMult = cpMultiplier[(int) level-1];
       
       //calculate hidden stats attack. defense, stamina power
       attackPower = (int) ((baseAttackPower + randGen.nextInt(16)) * cpMult);
