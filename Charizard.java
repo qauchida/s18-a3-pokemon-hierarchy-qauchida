@@ -17,13 +17,12 @@ public class Charizard extends Charmeleon implements FlyingType{
    protected boolean specialIsFire = true; 
    
    /** Constructor with no name. */
-   //need to override inherited interface NullType with FlyingType
    public Charizard() {
       super("Charizard", "Charizard", 6, 1.7, 90.5,FIRE_TYPE, 
           FLYING_TYPE, BASE_ATTACK_POWER, 
           BASE_DEFENSE_POWER, BASE_STAMINA_POWER);   
-    chooseFastAttack();
-    chooseSpecialAttack();
+      chooseFastAttack();
+      chooseSpecialAttack();
    }
 
    /** Constructor with name.
@@ -171,9 +170,9 @@ public class Charizard extends Charmeleon implements FlyingType{
          } 
       }
       //check for same types for bonus
-      // if (type1.equals(vType) && type2.equals(victim.getType2())) {
-   //          modifier = modifier *  1.5;
-   //       }
+      if (type1.equals(vType) && type2.equals(victim.getType2())) {
+            modifier = modifier *  1.5;
+         }
       //bulbapedia damage formula:
       damage = (((2 * level) + 10) / damageDivisor) 
          * attackPower * (specialAttackPower + 2) * modifier;      
