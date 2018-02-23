@@ -31,7 +31,7 @@ public class Jolteon extends Eevee implements ElectricType, NullType{
    //constructor with name
    public Jolteon(String name) {
       super("Jolteon", name, 135, 0.8, 24.5, ELECTRIC_TYPE, NULL_TYPE,
-      ATTACK, DEFENSE, STAMINA);
+         ATTACK, DEFENSE, STAMINA);
    
       chooseFastAttack();
       chooseSpecialAttack();
@@ -84,14 +84,15 @@ public class Jolteon extends Eevee implements ElectricType, NullType{
       s = name + " performed " + fastAttack + " on " + victim.getSpecies();
       //check effectiveness of attack
       
+      if(vType.equals("Water")){
+         modifier = modifier * 2.0;
+         s = s + "\n It was super effective!";
+      }
       if (vType.equals("Ground") || vType.equals("Steel") ) {
             
          s = s + "\n It was not very effective.";
          modifier = modifier * 0.5;          
-      } if(vType.equals("Water")){
-         modifier = modifier * 2.0;
-         s = s + "\n It was super effective!";
-      }else if (vType.equals("Rock")) { 
+      } else if (vType.equals("Rock")) { 
          s = s + "\n It had no effect...";
          modifier = modifier * 0.0;
       }
@@ -118,18 +119,19 @@ public class Jolteon extends Eevee implements ElectricType, NullType{
       //random modifier .85 - 1.00
       modifier = (double) (rand.nextInt(16) + 85) / 100.0;       
       s = name + " performed " + specialAttack + " on " + victim.getSpecies();
+      if(vType.equals("Water")){
+      
+         s = s + "\n It was super effective!";
+         modifier = modifier * 2.0;
+      
+      }
       if (vType.equals("Ground") || vType.equals("Steel") 
              ) {
              
          s = s + "\n It was not very effective.";
          modifier = modifier * .5;          
       } 
-      if(vType.equals(vType.equals("Water"))){
-      
-         s = s + "\n It was super effective!";
-         modifier = modifier * 2.0;
-      
-      }else if (vType.equals("Electric") ) { 
+      else if (vType.equals("Electric") ) { 
             
          s = s + "\n It had no effect...";
          modifier = modifier * 0.0;
