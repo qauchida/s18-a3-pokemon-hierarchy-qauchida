@@ -1,25 +1,25 @@
 import java.util.*;
 /**
-*@qauchida
-*@since 02/07/18
-*Charmander
+* @qauchida
+* @since 02/07/18
+* Charmander
 */
 
 public class Charmander extends Pokemon implements FireType, NullType {
 
-   /**Sets base attack.*/
+   /** Sets base attack.*/
    static final int ATTACK = 94;
-   /**Sets base defense.*/
+   /** Sets base defense.*/
    static final int DEFENSE = 122;
-   /**Sets base stamina.*/
+   /** Sets base stamina.*/
    static final int STAMINA = 88; 
-   /**booleans for Fire fast atttack used later.*/
+   /** booleans for Fire fast atttack used later.*/
    protected boolean fastIsFire = true;
-   /**boolean for Fire special attack used later*/
+   /** boolean for Fire special attack used later*/
    protected boolean specialIsFire = true;
    
    /**
-   *no name constructor. 
+   * no name constructor. 
    */
    public Charmander() {
       super("Charmander", "Charmander", 4, FIRE_COLOR, 0.6, 8.5, 
@@ -29,10 +29,8 @@ public class Charmander extends Pokemon implements FireType, NullType {
    } // close constructor
    
    /**
-   *with name constructor. 
-   *@param name Charmander
-   *@param defense
-   *@param stamina
+   * With name constructor. 
+   * @param name Charmander
    */
    public Charmander(String name) {
       super("Charmander", name, 4, FIRE_COLOR, 0.6, 8.5, 
@@ -43,17 +41,17 @@ public class Charmander extends Pokemon implements FireType, NullType {
    
    
    /**
-   *constructor.
-   *@param species Pokemon's species
-   *@param name Pokemon's name
-   *@param num Pokemon's number
-   *@param FIRE_TYPE fire type interface
-   *@param NULL_TYPE null type interface
-   *@param ht Pokemon's height in m
-   *@param wt Pokemon's weight in kg
-   *@param baseAttackPwr found on silph road
-   *@param baseDefensePwr found on silph road
-   *@param baseStaminaPwr found on silph road
+   * constructor.
+   * @param species Pokemon's species
+   * @param name Pokemon's name
+   * @param num Pokemon's number
+   * @param FIRE_TYPE fire type interface
+   * @param NULL_TYPE null type interface
+   * @param ht Pokemon's height in m
+   * @param wt Pokemon's weight in kg
+   * @param baseAttackPwr found on silph road
+   * @param baseDefensePwr found on silph road
+   * @param baseStaminaPwr found on silph road
    */
    protected Charmander(String species, String name, int num, 
        double ht, double wt, String FIRE_TYPE, String NULL_TYPE,
@@ -68,7 +66,7 @@ public class Charmander extends Pokemon implements FireType, NullType {
       chooseSpecialAttack();
    }
     /**
-    *constructor to choose fast attack.
+    * constructor to choose fast attack.
     */
    protected void chooseFastAttack() {
       //randomly choose to get grass or poison attack
@@ -83,9 +81,9 @@ public class Charmander extends Pokemon implements FireType, NullType {
    
    }
    /**
-   *constructor to do fast attack.
-   *@return String that says result of attack
-   *@param victim Pokemon being attacked
+   * constructor to do fast attack.
+   * @return String that says result of attack
+   * @param victim Pokemon being attacked
    */
    public String performFastAttack(Pokemon victim) {
       
@@ -146,9 +144,9 @@ public class Charmander extends Pokemon implements FireType, NullType {
    }
 
    /**
-   *Constructor to do special attack.
-   *@return String that says result of attack
-   *@param victim Pokemon being attacked
+   * Constructor to do special attack.
+   * @return String that says result of attack
+   * @param victim Pokemon being attacked
    */
    public String performSpecialAttack(Pokemon victim) {
       Random rand = new Random();

@@ -1,12 +1,12 @@
 import java.util.*;
 /**
-*@qauchida
-*@since 02/13/18
-*Charizard
+* @qauchida
+* @since 02/13/18
+* Charizard
 */
 
 public class Charizard extends Charmeleon implements FlyingType {
-  /** The minimum attack power for species. */ 
+   /** The minimum attack power for species. */ 
    static final int BASE_ATTACK_POWER = 223;
    /** The minimum defense power for species. */
    static final int BASE_DEFENSE_POWER = 176;
@@ -27,7 +27,7 @@ public class Charizard extends Charmeleon implements FlyingType {
    }
 
    /** 
-   *Constructor with name.
+   * Constructor with name.
    * @param name The user-defined name.
    */
    public Charizard(String name) {
@@ -38,17 +38,17 @@ public class Charizard extends Charmeleon implements FlyingType {
       chooseSpecialAttack();
    }
   /**
-  *Constructor. 
-  *@param species Pokemon's species
-  *@param name Pokemon's name from user input
-  *@param num number
-  *@param ht height m
-  *@param wt weight km
-  *@param FIRE_TYPE type1
-  *@param FLYING_TYPE type2
-  *@param baseAttackPwr attack
-  *@param baseDefensePwr defense
-  *@param baseStaminaPwr stamina
+  * Constructor. 
+  * @param species Pokemon's species
+  * @param name Pokemon's name from user input
+  * @param num number
+  * @param ht height m
+  * @param wt weight km
+  * @param FIRE_TYPE type1
+  * @param FLYING_TYPE type2
+  * @param baseAttackPwr attack
+  * @param baseDefensePwr defense
+  * @param baseStaminaPwr stamina
   */
    protected Charizard(String species, String name, int num, 
        double ht, double wt, String FIRE_TYPE, String FLYING_TYPE, 
@@ -107,8 +107,8 @@ public class Charizard extends Charmeleon implements FlyingType {
    
    /**
    * Method to do fast attack.
-   *@return String result about attack
-   *@param victim Pokemon getting attacked
+   * @return String result about attack
+   * @param victim Pokemon getting attacked
    *
    */
    public String performFastAttack(Pokemon victim) {
@@ -160,8 +160,8 @@ public class Charizard extends Charmeleon implements FlyingType {
    
    /**
    * Method to do special attack. 
-   *@return String result of attack
-   *@param victim Pokemon getting attacked
+   * @return String result of attack
+   * @param victim Pokemon getting attacked
    */
    public String performSpecialAttack(Pokemon victim) {
       Random rand = new Random();
@@ -204,10 +204,7 @@ public class Charizard extends Charmeleon implements FlyingType {
             modifier = modifier * 0.5;
          } 
       }
-      //check for same types for bonus
-      if (type1.equals(vType) && type2.equals(victim.getType2())) {
-         modifier = modifier *  1.5;
-      }
+
       //bulbapedia damage formula:
       damage = (((2 * level) + 10) / damageDivisor) 
          * attackPower * (specialAttackPower + 2) * modifier;      

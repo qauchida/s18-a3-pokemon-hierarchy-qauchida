@@ -4,6 +4,7 @@ import java.text.*; //imports decimal format
 * Abstract parent class for Pokemon species.
 * @author Lisa Miller
 * @since 9/23/2016
+* modified file by @qauchida
 */
 public abstract class Pokemon {
 

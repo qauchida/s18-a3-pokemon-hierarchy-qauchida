@@ -1,25 +1,25 @@
 import java.util.*;
 /**
-*@qauchida
-*@since 02/14/18
-*Vaporeon
+* @qauchida
+* @since 02/14/18
+* Vaporeon
 */
 
 public class Vaporeon extends Eevee implements WaterType, NullType {
-   /**base attack power.*/
+   /** base attack power.*/
    static final int ATTACK = 205;
-   /**base defense power.*/
+   /** base defense power.*/
    static final int DEFENSE = 177;
-   /**base stamina power.*/
+   /** base stamina power.*/
    static final int STAMINA = 260;
 
-   /**boolean to choose type for fast attack.*/
+   /** boolean to choose type for fast attack.*/
    protected boolean fastIsWater = true;
-   /**boolean to choose type for special attack.*/
+   /** boolean to choose type for special attack.*/
    protected boolean specialIsWater = true;
 
    /**
-   *Constructor for Vaporeon w/o name.
+   * Constructor for Vaporeon w/o name.
    */
    public Vaporeon() {
       super("Vaporeon", "Vaporeon", 134, 1.0, 29.0, WATER_TYPE, WATER_TYPE,
@@ -31,8 +31,8 @@ public class Vaporeon extends Eevee implements WaterType, NullType {
    }
 
    /**
-   *Constructor for Vaporeon w/ name.
-   *@param name Pokemon name based on user input
+   * Constructor for Vaporeon w/ name.
+   * @param name Pokemon name based on user input
    */
    public Vaporeon(String name) {
       super("Vaporeon", name, 134, 1.0, 29.0, WATER_TYPE, NULL_TYPE,
@@ -43,17 +43,17 @@ public class Vaporeon extends Eevee implements WaterType, NullType {
    
    }
    /**
-   *constructor.
-   *@param species Pokemon's species
-   *@param name Pokemon's name
-   *@param num Pokemon's number
-   *@param WATER_TYPE water type interface
-   *@param NULL_TYPE null type interface
-   *@param ht Pokemon's height in m
-   *@param wt Pokemon's weight in kg
-   *@param baseAttackPwr found on silph road
-   *@param baseDefensePwr found on silph road
-   *@param baseStaminaPwr found on silph road
+   * constructor.
+   * @param species Pokemon's species
+   * @param name Pokemon's name
+   * @param num Pokemon's number
+   * @param WATER_TYPE water type interface
+   * @param NULL_TYPE null type interface
+   * @param ht Pokemon's height in m
+   * @param wt Pokemon's weight in kg
+   * @param baseAttackPwr found on silph road
+   * @param baseDefensePwr found on silph road
+   * @param baseStaminaPwr found on silph road
    */
 
    protected Vaporeon(String species, String name, int num, 
@@ -64,7 +64,7 @@ public class Vaporeon extends Eevee implements WaterType, NullType {
          NULL_TYPE, baseAttackPwr, baseDefensePwr, baseStaminaPwr);
    }
    /**
-   *Method to choose fast attack.
+   * Method to choose fast attack.
    */
    protected void chooseFastAttack() {
    
@@ -78,7 +78,7 @@ public class Vaporeon extends Eevee implements WaterType, NullType {
    
    }
    /**
-   *Method to choose special attack.
+   * Method to choose special attack.
    */
    protected void chooseSpecialAttack() {
       Random ranNum = new Random();
@@ -91,9 +91,9 @@ public class Vaporeon extends Eevee implements WaterType, NullType {
          
    }
    /**
-   *Method to do fast attack. 
-   *@return String result of attack
-   *@param victim Pokemon being attacked
+   * Method to do fast attack. 
+   * @return String result of attack
+   * @param victim Pokemon being attacked
    */
    public String performFastAttack(Pokemon victim) {
    
@@ -131,9 +131,9 @@ public class Vaporeon extends Eevee implements WaterType, NullType {
    } //close performFastAttack
    
    /**
-   *Method to do special attack. 
-   *@return String result of attack
-   *@param victim Pokemon being attacked
+   * Method to do special attack. 
+   * @return String result of attack
+   * @param victim Pokemon being attacked
    */
    public String performSpecialAttack(Pokemon victim) {
    
@@ -173,8 +173,8 @@ public class Vaporeon extends Eevee implements WaterType, NullType {
    } //close performSpecialAttack
    
    /**
-   *Method to calculate damage.
-   *@param damage amount of hp lost
+   * Method to calculate damage.
+   * @param damage amount of hp lost
    */
    protected void beAttacked(int damage) {
    

@@ -1,24 +1,24 @@
 import java.util.*;
 /**
-*@qauchida
-*@since 02/14/18
-*jolteon
+* @qauchida
+* @since 02/14/18
+* jolteon
 */
 
 public class Jolteon extends Eevee implements ElectricType, NullType {
-   /**base attack power.*/
+   /** base attack power.*/
    static final int ATTACK = 232;
-   /**base defense power.*/
+   /** base defense power.*/
    static final int DEFENSE = 201;
-   /**base stamina power.*/
+   /** base stamina power.*/
    static final int STAMINA = 130;
-   /**boolean for choosing type for fast attack.*/
+   /** boolean for choosing type for fast attack.*/
    protected boolean fastIsElectric = true;
-   /**boolean for choosing type for special attack.*/
+   /** boolean for choosing type for special attack.*/
    protected boolean specialIsElectric = true;
 
    /**
-   *Constructor for Jolteon w/o name. 
+   * Constructor for Jolteon w/o name. 
    */
    public Jolteon() {
       super("Jolteon", "Jolteon", 135, 0.8, 24.5, ELECTRIC_TYPE, NULL_TYPE,
@@ -30,8 +30,8 @@ public class Jolteon extends Eevee implements ElectricType, NullType {
    }
 
    /**
-   *Constructor for Jolteon with name.
-   *@param name String Pokemon's name based on user input
+   * Constructor for Jolteon with name.
+   * @param name String Pokemon's name based on user input
    */
    public Jolteon(String name) {
       super("Jolteon", name, 135, 0.8, 24.5, ELECTRIC_TYPE, NULL_TYPE,
@@ -42,17 +42,17 @@ public class Jolteon extends Eevee implements ElectricType, NullType {
    
    }
    /**
-   *constructor.
-   *@param species Pokemon's species
-   *@param name Pokemon's name
-   *@param num Pokemon's number
-   *@param ELECTRIC_TYPE electric type interface
-   *@param NULL_TYPE null type interface
-   *@param ht Pokemon's height in m
-   *@param wt Pokemon's weight in kg
-   *@param baseAttackPwr found on silph road
-   *@param baseDefensePwr found on silph road
-   *@param baseStaminaPwr found on silph road
+   * constructor.
+   * @param species Pokemon's species
+   * @param name Pokemon's name
+   * @param num Pokemon's number
+   * @param ELECTRIC_TYPE electric type interface
+   * @param NULL_TYPE null type interface
+   * @param ht Pokemon's height in m
+   * @param wt Pokemon's weight in kg
+   * @param baseAttackPwr found on silph road
+   * @param baseDefensePwr found on silph road
+   * @param baseStaminaPwr found on silph road
    */
    protected Jolteon(String species, String name, int num, 
        double ht, double wt, String ELECTRIC_TYPE, String NULL_TYPE,
@@ -63,7 +63,7 @@ public class Jolteon extends Eevee implements ElectricType, NullType {
    }
    
    /**
-   *Method to choose fast attack.
+   * Method to choose fast attack.
    */
    protected void chooseFastAttack() {
    
@@ -78,7 +78,7 @@ public class Jolteon extends Eevee implements ElectricType, NullType {
    }
    
    /**
-   *Method to choose special attack.
+   * Method to choose special attack.
    */
    protected void chooseSpecialAttack() {
       Random ranNum = new Random();
@@ -92,9 +92,9 @@ public class Jolteon extends Eevee implements ElectricType, NullType {
    }
    
    /**
-   *Method to do fast attack.
-   *@return String result of atack
-   *@param victim Pokemon being attacked.
+   * Method to do fast attack.
+   * @return String result of atack
+   * @param victim Pokemon being attacked.
    */
    public String performFastAttack(Pokemon victim) {
    
@@ -134,9 +134,9 @@ public class Jolteon extends Eevee implements ElectricType, NullType {
    } //close performFastAttack
    
    /**
-   *Method to do special attack.
-   *@return String result of atack
-   *@param victim Pokemon being attacked.
+   * Method to do special attack.
+   * @return String result of atack
+   * @param victim Pokemon being attacked.
    */
    public String performSpecialAttack(Pokemon victim) {
    
@@ -180,8 +180,8 @@ public class Jolteon extends Eevee implements ElectricType, NullType {
    } //close performSpecialAttack
    
    /**
-   *Method to calculate victim damage.
-   *@param damage amount of hp lost from victim
+   * Method to calculate victim damage.
+   * @param damage amount of hp lost from victim
    */
    protected void beAttacked(int damage) {
    

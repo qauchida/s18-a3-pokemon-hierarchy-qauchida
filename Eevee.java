@@ -1,26 +1,26 @@
 import java.util.*;
 /**
-*@qauchida
-*@since 02/13/18
-*Eevee
+* @qauchida
+* @since 02/13/18
+* Eevee
 */
 
 public class Eevee extends Pokemon implements NormalType, NullType {
    
-   /**base attack power.*/
+   /** base attack power.*/
    static final int ATTACK = 104;
-   /**base defense power.*/
+   /** base defense power.*/
    static final int DEFENSE = 121;
-   /**base stamina power.*/
+   /** base stamina power.*/
    static final int STAMINA = 110;
 
-   /**boolean for determing type for attack.*/
+   /** boolean for determing type for attack.*/
    protected boolean fastIsNormal = true;
-   /**boolean for determing type for attack.*/
+   /** boolean for determing type for attack.*/
    protected boolean specialIsNormal = true;
 
    /**
-   *Constructor w/o name.
+   * Constructor w/o name.
    */
    public Eevee() {
       super("Eevee", "Eevee", 133, NORMAL_COLOR, 0.3, 6.5,
@@ -32,8 +32,8 @@ public class Eevee extends Pokemon implements NormalType, NullType {
    }
 
    /**
-   *constructor with name.
-   *@param name Pokemon name
+   * constructor with name.
+   * @param name Pokemon name
    */
    public Eevee(String name) {
       super("Eevee", name, 133, NORMAL_COLOR, 0.3, 6.5,
@@ -44,17 +44,17 @@ public class Eevee extends Pokemon implements NormalType, NullType {
    
    }
    /**
-   *constructor.
-   *@param species Pokemon's species
-   *@param name Pokemon's name
-   *@param num Pokemon's number
-   *@param NORMAL_TYPE normal type interface
-   *@param NULL_TYPE null type interface
-   *@param ht Pokemon's height in m
-   *@param wt Pokemon's weight in kg
-   *@param baseAttackPwr found on silph road
-   *@param baseDefensePwr found on silph road
-   *@param baseStaminaPwr found on silph road
+   * constructor.
+   * @param species Pokemon's species
+   * @param name Pokemon's name
+   * @param num Pokemon's number
+   * @param NORMAL_TYPE normal type interface
+   * @param NULL_TYPE null type interface
+   * @param ht Pokemon's height in m
+   * @param wt Pokemon's weight in kg
+   * @param baseAttackPwr found on silph road
+   * @param baseDefensePwr found on silph road
+   * @param baseStaminaPwr found on silph road
    */
 
    protected Eevee(String species, String name, int num, 
@@ -69,7 +69,7 @@ public class Eevee extends Pokemon implements NormalType, NullType {
    }
    
    /**
-   *Method to choose fast attacks.
+   * Method to choose fast attacks.
    */
    protected void chooseFastAttack() {
       Random ranNum = new Random();
@@ -81,7 +81,7 @@ public class Eevee extends Pokemon implements NormalType, NullType {
    
    }
    /**
-   *Method to choose special attacks.
+   * Method to choose special attacks.
    */
    protected void chooseSpecialAttack() {
       Random ranNum = new Random();
@@ -94,9 +94,9 @@ public class Eevee extends Pokemon implements NormalType, NullType {
    }
    
    /**
-   *Method to do fast attack.
-   *@return String result of attack
-   *@param victim Pokemon being attacked
+   * Method to do fast attack.
+   * @return String result of attack
+   * @param victim Pokemon being attacked
    */
    public String performFastAttack(Pokemon victim) {
    
@@ -132,9 +132,9 @@ public class Eevee extends Pokemon implements NormalType, NullType {
    } //close performFastAttack
    
    /**
-   *Method to do special attack.
-   *@return String result of attack
-   *@param victim Pokemon being attacked
+   * Method to do special attack.
+   * @return String result of attack
+   * @param victim Pokemon being attacked
    */
    public String performSpecialAttack(Pokemon victim) {
    
@@ -171,8 +171,8 @@ public class Eevee extends Pokemon implements NormalType, NullType {
    } //close performSpecialAttack
    
    /**
-   *Method for Pokemon being attacked.
-   *@param damage done to Pokemon being attacked
+   * Method for Pokemon being attacked.
+   * @param damage done to Pokemon being attacked
    */
    protected void beAttacked(int damage) {
    

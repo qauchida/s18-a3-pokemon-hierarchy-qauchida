@@ -1,25 +1,25 @@
 import java.util.*;
 /**
-*@qauchida
-*@since 02/22/18
-*flareon
+* @qauchida
+* @since 02/22/18
+* flareon
 */
 
 public class Flareon extends Eevee implements FireType, NullType {
-   /**base attack power.*/
+   /** base attack power.*/
    static final int ATTACK = 246;
-   /**base defense power.*/
+   /** base defense power.*/
    static final int DEFENSE = 204;
-   /**base stamina power.*/
+   /** base stamina power.*/
    static final int STAMINA = 130;
 
-   /**Boolean to choose type of fast attack.*/
+   /** Boolean to choose type of fast attack.*/
    protected boolean fastIsFire = true;
-   /**Boolean to choose type for special attack.*/
+   /** Boolean to choose type for special attack.*/
    protected boolean specialIsFire = true;
 
    /**
-   *Constructor w/o name.
+   * Constructor w/o name.
    */
    public Flareon() {
       super("Flareon", "Flareon", 136, 0.9, 25.0, 
@@ -31,8 +31,8 @@ public class Flareon extends Eevee implements FireType, NullType {
    }
 
    /**
-   *Constructor w/ name.
-   *@param name Pokemon name based on user input
+   * Constructor w/ name.
+   * @param name Pokemon name based on user input
    */
    public Flareon(String name) {
       super("Flareon", name, 136, 0.9, 25.0, FIRE_TYPE, NULL_TYPE,
@@ -44,17 +44,17 @@ public class Flareon extends Eevee implements FireType, NullType {
    }
    
    /**
-   *constructor.
-   *@param species Pokemon's species
-   *@param name Pokemon's name
-   *@param num Pokemon's number
-   *@param FIRE_TYPE fire type interface
-   *@param NULL_TYPE null type interface
-   *@param ht Pokemon's height in m
-   *@param wt Pokemon's weight in kg
-   *@param baseAttackPwr found on silph road
-   *@param baseDefensePwr found on silph road
-   *@param baseStaminaPwr found on silph road
+   * constructor.
+   * @param species Pokemon's species
+   * @param name Pokemon's name
+   * @param num Pokemon's number
+   * @param FIRE_TYPE fire type interface
+   * @param NULL_TYPE null type interface
+   * @param ht Pokemon's height in m
+   * @param wt Pokemon's weight in kg
+   * @param baseAttackPwr found on silph road
+   * @param baseDefensePwr found on silph road
+   * @param baseStaminaPwr found on silph road
    */
    protected Flareon(String species, String name, int num, 
        double ht, double wt, String FIRE_TYPE, String NULL_TYPE,
@@ -65,7 +65,7 @@ public class Flareon extends Eevee implements FireType, NullType {
    }
    
    /**
-   *Method to choose fast attack.
+   * Method to choose fast attack.
    */
    protected void chooseFastAttack() {
    
@@ -79,7 +79,7 @@ public class Flareon extends Eevee implements FireType, NullType {
    
    }
    /**
-   *Method to choose special attack.
+   * Method to choose special attack.
    */
    protected void chooseSpecialAttack() {
       Random ranNum = new Random();
@@ -93,9 +93,9 @@ public class Flareon extends Eevee implements FireType, NullType {
    }
    
    /**
-   *Method to do fast attack.
-   *@return String result of attack
-   *@param victim Pokemon being attacked
+   * Method to do fast attack.
+   * @return String result of attack
+   * @param victim Pokemon being attacked
    */
    public String performFastAttack(Pokemon victim) {
    
@@ -135,9 +135,9 @@ public class Flareon extends Eevee implements FireType, NullType {
    } //close performFastAttack
    
    /**
-   *Method to do special attack.
-   *@return String result of attack
-   *@param victim Pokemon being attacked
+   * Method to do special attack.
+   * @return String result of attack
+   * @param victim Pokemon being attacked
    */
    public String performSpecialAttack(Pokemon victim) {
    
@@ -180,8 +180,8 @@ public class Flareon extends Eevee implements FireType, NullType {
    } //close performSpecialAttack
    
    /**
-   *Method to calculate damage.
-   *@param damage amount of hp lost
+   * Method to calculate damage.
+   * @param damage amount of hp lost
    */
    protected void beAttacked(int damage) {
    

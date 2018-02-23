@@ -1,27 +1,25 @@
 import java.util.*;
 /**
-*@qauchida
-*@since 02/07/18
-*Squirtle
+* @qauchida
+* @since 02/07/18
+* Squirtle
 */
 
 public class Squirtle extends Pokemon implements WaterType, NullType {
 
-   /**
-   *declare base stats as constants.
-   */
+   /** Sets attack.*/
    static final int ATTACK = 94;
-   /***/
+   /** Sets defense.*/
    static final int DEFENSE = 122;
-   /***/
+   /** Sets stamina.*/
    static final int STAMINA = 88; 
-   /***/
+   /** Boolean to pick type for fast attack.*/
    protected boolean fastIsWater = true;
-   /***/
+   /** Boolean to pick for special attack.*/
    protected boolean specialIsWater = true;
    
    /**
-   *no name constructor. 
+   * no name constructor. 
    */
    public Squirtle() {
       super("Squirtle", "Squirtle", 7, WATER_COLOR, 0.5, 9.0, 
@@ -32,12 +30,7 @@ public class Squirtle extends Pokemon implements WaterType, NullType {
    
    /**
    *with name constructor. 
-   *@param name 
-   *@param num
-   *@param ht
-   *@param wt
-   *@param defense
-   *@param stamina
+   * @param name 
    */
    public Squirtle(String name) {
       super("Squirtle", name, 7, WATER_COLOR, 0.5, 9.0, 
@@ -47,15 +40,15 @@ public class Squirtle extends Pokemon implements WaterType, NullType {
    } // close constructor
    
    /**
-   *with name constructor. 
-   *@param name Pokemon name based on user input
-   *@param species Pokemon's species
-   *@param num Pokemon's number
-   *@param ht Pokemon's height in m
-   *@param wt Pokemon's weight in kg
-   *@param baseAttackPwr found on silph road
-   *@param baseDefensePwr found on silph road
-   *@param baseStaminaPwr found on silph road
+   * with name constructor. 
+   * @param name Pokemon name based on user input
+   * @param species Pokemon's species
+   * @param num Pokemon's number
+   * @param ht Pokemon's height in m
+   * @param wt Pokemon's weight in kg
+   * @param baseAttackPwr found on silph road
+   * @param baseDefensePwr found on silph road
+   * @param baseStaminaPwr found on silph road
    */
    protected Squirtle(String species, String name, int num, 
        double ht, double wt, int baseAttackPwr, int baseDefensePwr, 
@@ -68,7 +61,7 @@ public class Squirtle extends Pokemon implements WaterType, NullType {
       chooseSpecialAttack();
    }
    /**
-   *method to choose fast attack.
+   * Method to choose fast attack.
    */
    protected void chooseFastAttack() {
       Random randGen = new Random();
@@ -82,9 +75,9 @@ public class Squirtle extends Pokemon implements WaterType, NullType {
    
    }
    /**
-   *method to do fast attack.
-   *@return String result of fast attack
-   *@param victim Pokemon being attacked
+   * Method to do fast attack.
+   * @return String result of fast attack
+   * @param victim Pokemon being attacked
    */
    public String performFastAttack(Pokemon victim) {
       
@@ -123,7 +116,7 @@ public class Squirtle extends Pokemon implements WaterType, NullType {
    
    
    /**
-   *method to choose special attack.
+   * Method to choose special attack.
    */
    protected void chooseSpecialAttack() {
     
@@ -138,9 +131,9 @@ public class Squirtle extends Pokemon implements WaterType, NullType {
    }
 
    /**
-   *method to do special attack.
-   *@return String result of attack 
-   *@param victim Pokemon being attacked
+   * Method to do special attack.
+   * @return String result of attack 
+   * @param victim Pokemon being attacked
    */
    public String performSpecialAttack(Pokemon victim) {
       Random rand = new Random();

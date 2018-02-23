@@ -1,7 +1,7 @@
 /**
-*@qauchida
-*@since 02/13/18
-*blastoise
+* @qauchida
+* @since 02/13/18
+* blastoise
 */
 public class Blastoise extends Wartortle {
 
