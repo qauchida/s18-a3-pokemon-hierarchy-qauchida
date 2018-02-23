@@ -72,12 +72,12 @@ public class Charizard extends Charmeleon implements FlyingType{
       
       if (specialIsFire) {
          index = randGen.nextInt(FIRE_FAST_ATTACKS.length);
-         specialAttack = FIRE_FAST_ATTACKS[index];
-         specialAttackPower = FIRE_FAST_ATK_POWER[index];
+         specialAttack = FIRE_SPECIAL_ATTACKS[index];
+         specialAttackPower = FIRE_SPECIAL_ATK_POWER[index];
       } else { 
          index = randGen.nextInt(FLYING_FAST_ATTACKS.length);
-         specialAttack = FLYING_FAST_ATTACKS[index]; 
-         specialAttackPower = FLYING_FAST_ATK_POWER[index];
+         specialAttack = FLYING_SPECIAL_ATTACKS[index]; 
+         specialAttackPower = FLYING_SPECIAL_ATK_POWER[index];
          specialIsFire = false;  
       }
    
