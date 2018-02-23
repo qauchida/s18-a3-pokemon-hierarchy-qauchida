@@ -14,7 +14,7 @@ public class Charmeleon extends Charmander {
    
    /** Constructor with no name. */
    public Charmeleon() {
-      super ("Charmeleon", "Charmeleon", 5, 1.1, 19.0,FIRE_TYPE, NULL_TYPE,
+      super ("Charmeleon", "Charmeleon", 5, 1.1, 19.0, FIRE_TYPE, NULL_TYPE,
          BASE_ATTACK_POWER,BASE_DEFENSE_POWER, BASE_STAMINA_POWER);   
    }
    
@@ -33,7 +33,5 @@ public class Charmeleon extends Charmander {
       super(species, name, num, ht, wt, FIRE_TYPE, NULL_TYPE, baseAttackPwr, 
           baseDefensePwr, baseStaminaPwr);
    }
-
-
-
-}//close class
+   
+}
