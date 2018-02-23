@@ -1,7 +1,7 @@
 /**
 *@qauchida
 *@since 02/13/18
-*elecric interface
+*elecric type interface
 */
 
 public interface ElectricType {
