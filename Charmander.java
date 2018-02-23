@@ -2,20 +2,20 @@ import java.util.*;
 /**
 *@qauchida
 *@since 02/07/18
-*makes charmander
+*Charmander
 */
 
 public class Charmander extends Pokemon implements FireType, NullType {
 
-   /***/
+   /**Sets base attack.*/
    static final int ATTACK = 94;
-   /***/
+   /**Sets base defense.*/
    static final int DEFENSE = 122;
-   /***/
+   /**Sets base stamina.*/
    static final int STAMINA = 88; 
-   /***/
+   /**booleans for Fire fast atttack used later.*/
    protected boolean fastIsFire = true;
-   /***/
+   /**boolean for Fire special attack used later*/
    protected boolean specialIsFire = true;
    
    /**

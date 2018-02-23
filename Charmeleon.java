@@ -23,13 +23,22 @@ public class Charmeleon extends Charmander {
    * @param name based on user input
    */
    public Charmeleon(String name) {
-      super("Charmeleon", name, 5, 1.1, 19.0,FIRE_TYPE, NULL_TYPE,
+      super("Charmeleon", name, 5, 1.1, 19.0, FIRE_TYPE, NULL_TYPE,
           BASE_ATTACK_POWER, BASE_DEFENSE_POWER, BASE_STAMINA_POWER);
    }
 
    /**
    *constructor.
-   *
+   *@param species Charmeleon
+   *@param name User's input
+   *@param num Pokedex number
+   *@param ht Pokemon's height m
+   *@param wt Pokemon's weight kg
+   *@param FIRE_TYPE Type1
+   *@param NULL_TYPE Type2
+   *@param baseAttackPwr base attack
+   *@param baseDefensePwr base defense
+   *@param baseStaminaPwr base stamina
    */
    protected Charmeleon(String species, String name, int num, double ht, 
        double wt, String FIRE_TYPE, String NULL_TYPE, int baseAttackPwr, 
