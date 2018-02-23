@@ -98,7 +98,7 @@ public class CharizardTest {
             i++;
       }
       if(pAtkFire){
-         Assert.assertEquals("Fast Attack result String isn't correct",  
+            Assert.assertEquals("Fast Attack result String isn't correct",  
          "Charizard performed " + pFA + " on Charizard\n It was not very effective.",
           p.performFastAttack(p2));
      }else{

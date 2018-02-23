@@ -4,6 +4,7 @@ import java.text.*; //imports decimal format
 * Abstract parent class for Pokemon species.
 * @author Lisa Miller
 * @since 9/23/2016
+* modified file by @qauchida
 */
 public abstract class Pokemon {
 
@@ -97,10 +98,10 @@ public abstract class Pokemon {
       this.type2 = type2;
       
       //generate initial level
-      this.level = (double) randGen.nextInt(40);
+      this.level = (double) 1 + randGen.nextInt(40);
    
       //calculate multiplier for stats
-      cpMult = cpMultiplier[(int) level];
+      cpMult = cpMultiplier[(int) level-1];
       
       //calculate hidden stats attack. defense, stamina power
       attackPower = (int) ((baseAttackPower + randGen.nextInt(16)) * cpMult);
@@ -124,12 +125,22 @@ public abstract class Pokemon {
    */
    private void calculateHPAndCP() {
       //calculate multiplier for stats
-      double cpMult = cpMultiplier[(int) level - 1];
+     
+      
+      double cpMult = cpMultiplier[(int) level -1];
+      
       hP = staminaPower;
+  //     if(hP<10){
+//       hP = 10;
+//       }
       cP = (int) ((attackPower * Math.pow(defensePower, 0.5) 
          * Math.pow(staminaPower, 0.5) * Math.pow(cpMult, 2)) / 10.0);
+     
+      if (cP < 10){
+      cP = 10;
+      }   
    }
-   
+
    /*** public class methods ***/
    /**
    * Increases Pokemon's level by 1.
@@ -286,6 +297,7 @@ public abstract class Pokemon {
    * @return int This Pokemon's Combat Power
    */   
    public int getCP() {
+   
       return cP;        
    }
    /**

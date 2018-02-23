@@ -4,6 +4,7 @@
 * @author Lisa Miller
 * @since 9/17/2017
 */
+
 public interface FireType {
    /** constants **/
    /** Type name String. */

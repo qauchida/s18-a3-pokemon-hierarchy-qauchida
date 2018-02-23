@@ -1,0 +1,190 @@
+import java.util.*;
+/**
+* @qauchida
+* @since 02/13/18
+* Eevee
+*/
+
+public class Eevee extends Pokemon implements NormalType, NullType {
+   
+   /** base attack power.*/
+   static final int ATTACK = 104;
+   /** base defense power.*/
+   static final int DEFENSE = 121;
+   /** base stamina power.*/
+   static final int STAMINA = 110;
+
+   /** boolean for determing type for attack.*/
+   protected boolean fastIsNormal = true;
+   /** boolean for determing type for attack.*/
+   protected boolean specialIsNormal = true;
+
+   /**
+   * Constructor w/o name.
+   */
+   public Eevee() {
+      super("Eevee", "Eevee", 133, NORMAL_COLOR, 0.3, 6.5,
+         NORMAL_TYPE, NULL_TYPE, ATTACK, DEFENSE, STAMINA);
+   
+      chooseFastAttack();
+      chooseSpecialAttack(); 
+   
+   }
+
+   /**
+   * constructor with name.
+   * @param name Pokemon name
+   */
+   public Eevee(String name) {
+      super("Eevee", name, 133, NORMAL_COLOR, 0.3, 6.5,
+         NORMAL_TYPE, NULL_TYPE, ATTACK, DEFENSE, STAMINA);
+   
+      chooseFastAttack();
+      chooseSpecialAttack();
+   
+   }
+   /**
+   * constructor.
+   * @param species Pokemon's species
+   * @param name Pokemon's name
+   * @param num Pokemon's number
+   * @param NORMAL_TYPE normal type interface
+   * @param NULL_TYPE null type interface
+   * @param ht Pokemon's height in m
+   * @param wt Pokemon's weight in kg
+   * @param baseAttackPwr found on silph road
+   * @param baseDefensePwr found on silph road
+   * @param baseStaminaPwr found on silph road
+   */
+
+   protected Eevee(String species, String name, int num, 
+       double ht, double wt, String NORMAL_TYPE, String NULL_TYPE,
+       int baseAttackPwr, int baseDefensePwr, int baseStaminaPwr) {
+     
+      super(species, name, num, NORMAL_COLOR, ht, wt, NORMAL_TYPE, 
+         NULL_TYPE, baseAttackPwr, baseDefensePwr, baseStaminaPwr);
+         
+      chooseFastAttack();
+      chooseSpecialAttack();
+   }
+   
+   /**
+   * Method to choose fast attacks.
+   */
+   protected void chooseFastAttack() {
+      Random ranNum = new Random();
+      int index;
+      fastIsNormal = ranNum.nextBoolean();
+      index = ranNum.nextInt(NORMAL_FAST_ATTACKS.length);
+      fastAttack = NORMAL_FAST_ATTACKS[index];
+      fastAttackPower = NORMAL_FAST_ATK_PWR[index];
+   
+   }
+   /**
+   * Method to choose special attacks.
+   */
+   protected void chooseSpecialAttack() {
+      Random ranNum = new Random();
+      int index;
+      specialIsNormal = ranNum.nextBoolean();
+      index = ranNum.nextInt(NORMAL_SPECIAL_ATTACKS.length);
+      specialAttack = NORMAL_SPECIAL_ATTACKS[index];
+      specialAttackPower = NORMAL_SPECIAL_ATK_PWR[index];
+         
+   }
+   
+   /**
+   * Method to do fast attack.
+   * @return String result of attack
+   * @param victim Pokemon being attacked
+   */
+   public String performFastAttack(Pokemon victim) {
+   
+      Random rand = new Random();
+      double damage = 0.0;
+      double modifier = 1.0;
+      double damageDivisor = 250.0;
+      
+      String s = "";
+      String vType = victim.getType1();
+      
+      //random modifier .85 - 1.00
+      modifier = (double) (rand.nextInt(16) + 85) / 100.0;      
+      s = name + " performed " + fastAttack + " on " + victim.getSpecies();
+      //check effectiveness of attack
+      
+      if (vType.equals("Rock") || vType.equals("Steel")) {
+            
+         s = s + "\n It was not very effective.";
+         modifier = modifier * 0.5;          
+      } else if (vType.equals("Ghost")) { 
+         s = s + "\n It had no effect...";
+         modifier = modifier * 0.0;
+      }
+   
+        //bulbapedia damage formula:
+      damage = (((2 * level) + 10) / damageDivisor) 
+         * attackPower * (specialAttackPower + 2) * modifier;      
+      //perform hit on victim pokemon
+      victim.beAttacked((int) damage);
+      return s;
+   
+   } //close performFastAttack
+   
+   /**
+   * Method to do special attack.
+   * @return String result of attack
+   * @param victim Pokemon being attacked
+   */
+   public String performSpecialAttack(Pokemon victim) {
+   
+      Random rand = new Random();
+      double damage = 0.0;
+      double modifier = 1.0;
+      double damageDivisor = 250.0;
+      
+      String s = "";
+      String vType = victim.getType1();
+      
+      //random modifier .85 - 1.00
+      modifier = (double) (rand.nextInt(16) + 85) / 100.0;       
+      s = name + " performed " + specialAttack + " on " + victim.getSpecies();
+      if (vType.equals("Rock") || vType.equals("Steel")) {
+             
+         s = s + "\n It was not very effective.";
+         modifier = modifier * .5;          
+      } else if (vType.equals("Ghost")) { 
+            
+         s = s + "\n It had no effect...";
+         modifier = modifier * 0.0;
+      }
+      
+            
+      //bulbapedia damage formula:
+      damage = (((2 * level) + 10) / damageDivisor) 
+          * attackPower * (specialAttackPower + 2) * modifier;
+     
+      //perform hit on victim pokemon
+      victim.beAttacked((int) damage);
+      return s;
+   
+   } //close performSpecialAttack
+   
+   /**
+   * Method for Pokemon being attacked.
+   * @param damage done to Pokemon being attacked
+   */
+   protected void beAttacked(int damage) {
+   
+      damage = damage / defensePower;
+   
+      if (hP > damage) {
+         hP = hP - damage;
+      } else {
+         hP = 0;
+      }
+   
+   } //close beAttacked
+
+
+} //close
