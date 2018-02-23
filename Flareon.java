@@ -5,30 +5,35 @@ import java.util.*;
 *flareon
 */
 
-public class Flareon extends Eevee implements FireType, NullType{
-
+public class Flareon extends Eevee implements FireType, NullType {
+   /**base attack power.*/
    static final int ATTACK = 246;
    /**base defense power.*/
    static final int DEFENSE = 204;
    /**base stamina power.*/
    static final int STAMINA = 130;
 
-   /***/
+   /**Boolean to choose type of fast attack.*/
    protected boolean fastIsFire = true;
-   /***/
+   /**Boolean to choose type for special attack.*/
    protected boolean specialIsFire = true;
 
-
+   /**
+   *Constructor w/o name.
+   */
    public Flareon() {
-      super("Flareon", "Flareon", 136, 0.9, 25.0, FIRE_TYPE, NULL_TYPE,
-         ATTACK, DEFENSE, STAMINA);
+      super("Flareon", "Flareon", 136, 0.9, 25.0, 
+            FIRE_TYPE, NULL_TYPE, ATTACK, DEFENSE, STAMINA);
    
       chooseFastAttack();
       chooseSpecialAttack(); 
    
    }
 
-   //constructor with name
+   /**
+   *Constructor w/ name.
+   *@param name Pokemon name based on user input
+   */
    public Flareon(String name) {
       super("Flareon", name, 136, 0.9, 25.0, FIRE_TYPE, NULL_TYPE,
          ATTACK, DEFENSE, STAMINA);
@@ -37,15 +42,31 @@ public class Flareon extends Eevee implements FireType, NullType{
       chooseSpecialAttack();
    
    }
-
+   
+   /**
+   *constructor.
+   *@param species Pokemon's species
+   *@param name Pokemon's name
+   *@param num Pokemon's number
+   *@param FIRE_TYPE fire type interface
+   *@param NULL_TYPE null type interface
+   *@param ht Pokemon's height in m
+   *@param wt Pokemon's weight in kg
+   *@param baseAttackPwr found on silph road
+   *@param baseDefensePwr found on silph road
+   *@param baseStaminaPwr found on silph road
+   */
    protected Flareon(String species, String name, int num, 
-       double ht, double wt,String FIRE_TYPE, String NULL_TYPE, int baseAttackPwr, int baseDefensePwr, 
-       int baseStaminaPwr) {
+       double ht, double wt, String FIRE_TYPE, String NULL_TYPE,
+       int baseAttackPwr, int baseDefensePwr, int baseStaminaPwr) {
        
       super(species, name, num, ht, wt, FIRE_TYPE, 
          NULL_TYPE, baseAttackPwr, baseDefensePwr, baseStaminaPwr);
    }
    
+   /**
+   *Method to choose fast attack.
+   */
    protected void chooseFastAttack() {
    
       Random ranNum = new Random();
@@ -57,7 +78,9 @@ public class Flareon extends Eevee implements FireType, NullType{
       fastAttackPower = FIRE_FAST_ATK_POWER[index];
    
    }
-   
+   /**
+   *Method to choose special attack.
+   */
    protected void chooseSpecialAttack() {
       Random ranNum = new Random();
       int index;
@@ -68,7 +91,12 @@ public class Flareon extends Eevee implements FireType, NullType{
       specialAttackPower = FIRE_SPECIAL_ATK_POWER[index];
          
    }
-
+   
+   /**
+   *Method to do fast attack.
+   *@return String result of attack
+   *@param victim Pokemon being attacked
+   */
    public String performFastAttack(Pokemon victim) {
    
       Random rand = new Random();
@@ -84,15 +112,15 @@ public class Flareon extends Eevee implements FireType, NullType{
       s = name + " performed " + fastAttack + " on " + victim.getSpecies();
       //check effectiveness of attack
       
-      if (vType.equals("Ground") || vType.equals("Steel") ) {
+      if (vType.equals("Ground") || vType.equals("Steel")) {
             
          s = s + "\n It was not very effective.";
          modifier = modifier * 0.5;          
       } 
-      if(vType.equals("Water")){
+      if (vType.equals("Water")) {
          modifier = modifier * 2.0;
          s = s + "\n It was super effective!";
-      }else if (vType.equals("Rock")) { 
+      } else if (vType.equals("Rock")) { 
          s = s + "\n It had no effect...";
          modifier = modifier * 0.0;
       }
@@ -106,6 +134,11 @@ public class Flareon extends Eevee implements FireType, NullType{
    
    } //close performFastAttack
    
+   /**
+   *Method to do special attack.
+   *@return String result of attack
+   *@param victim Pokemon being attacked
+   */
    public String performSpecialAttack(Pokemon victim) {
    
       Random rand = new Random();
@@ -119,18 +152,17 @@ public class Flareon extends Eevee implements FireType, NullType{
       //random modifier .85 - 1.00
       modifier = (double) (rand.nextInt(16) + 85) / 100.0;       
       s = name + " performed " + specialAttack + " on " + victim.getSpecies();
-      if (vType.equals("Ground") || vType.equals("Steel") 
-             ) {
+      if (vType.equals("Ground") || vType.equals("Steel")) {
              
          s = s + "\n It was not very effective.";
          modifier = modifier * .5;          
       } 
-      if(vType.equals(vType.equals("Water"))){
+      if (vType.equals("Water")) {
       
          s = s + "\n It was super effective!";
          modifier = modifier * 2.0;
       
-      }else if (vType.equals("Electric") ) { 
+      } else if (vType.equals("Electric")) { 
             
          s = s + "\n It had no effect...";
          modifier = modifier * 0.0;
@@ -147,13 +179,17 @@ public class Flareon extends Eevee implements FireType, NullType{
    
    } //close performSpecialAttack
    
+   /**
+   *Method to calculate damage.
+   *@param damage amount of hp lost
+   */
    protected void beAttacked(int damage) {
    
-      damage = damage/defensePower;
+      damage = damage / defensePower;
    
-      if(hP> damage){
-         hP = hP-damage;
-      }else{
+      if (hP > damage) {
+         hP = hP - damage;
+      } else {
          hP = 0;
       }
    

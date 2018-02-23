@@ -5,7 +5,7 @@ import java.util.*;
 *Eevee
 */
 
-public class Eevee extends Pokemon implements NormalType,NullType {
+public class Eevee extends Pokemon implements NormalType, NullType {
    
    /**base attack power.*/
    static final int ATTACK = 104;
@@ -14,22 +14,27 @@ public class Eevee extends Pokemon implements NormalType,NullType {
    /**base stamina power.*/
    static final int STAMINA = 110;
 
-   /***/
+   /**boolean for determing type for attack.*/
    protected boolean fastIsNormal = true;
-   /***/
+   /**boolean for determing type for attack.*/
    protected boolean specialIsNormal = true;
 
-//constructor w/o name
+   /**
+   *Constructor w/o name.
+   */
    public Eevee() {
       super("Eevee", "Eevee", 133, NORMAL_COLOR, 0.3, 6.5,
-         NORMAL_TYPE, NULL_TYPE,ATTACK, DEFENSE, STAMINA);
+         NORMAL_TYPE, NULL_TYPE, ATTACK, DEFENSE, STAMINA);
    
       chooseFastAttack();
       chooseSpecialAttack(); 
    
    }
 
-//constructor with name
+   /**
+   *constructor with name.
+   *@param name Pokemon name
+   */
    public Eevee(String name) {
       super("Eevee", name, 133, NORMAL_COLOR, 0.3, 6.5,
          NORMAL_TYPE, NULL_TYPE, ATTACK, DEFENSE, STAMINA);
@@ -38,18 +43,34 @@ public class Eevee extends Pokemon implements NormalType,NullType {
       chooseSpecialAttack();
    
    }
+   /**
+   *constructor.
+   *@param species Pokemon's species
+   *@param name Pokemon's name
+   *@param num Pokemon's number
+   *@param NORMAL_TYPE normal type interface
+   *@param NULL_TYPE null type interface
+   *@param ht Pokemon's height in m
+   *@param wt Pokemon's weight in kg
+   *@param baseAttackPwr found on silph road
+   *@param baseDefensePwr found on silph road
+   *@param baseStaminaPwr found on silph road
+   */
 
    protected Eevee(String species, String name, int num, 
-       double ht, double wt,String NORMAL_TYPE, String NULL_TYPE, int baseAttackPwr, int baseDefensePwr, 
-       int baseStaminaPwr) {
-       
+       double ht, double wt, String NORMAL_TYPE, String NULL_TYPE,
+       int baseAttackPwr, int baseDefensePwr, int baseStaminaPwr) {
+     
       super(species, name, num, NORMAL_COLOR, ht, wt, NORMAL_TYPE, 
          NULL_TYPE, baseAttackPwr, baseDefensePwr, baseStaminaPwr);
          
-         chooseFastAttack();
-         chooseSpecialAttack();
+      chooseFastAttack();
+      chooseSpecialAttack();
    }
    
+   /**
+   *Method to choose fast attacks.
+   */
    protected void chooseFastAttack() {
       Random ranNum = new Random();
       int index;
@@ -59,7 +80,9 @@ public class Eevee extends Pokemon implements NormalType,NullType {
       fastAttackPower = NORMAL_FAST_ATK_PWR[index];
    
    }
-   
+   /**
+   *Method to choose special attacks.
+   */
    protected void chooseSpecialAttack() {
       Random ranNum = new Random();
       int index;
@@ -69,7 +92,12 @@ public class Eevee extends Pokemon implements NormalType,NullType {
       specialAttackPower = NORMAL_SPECIAL_ATK_PWR[index];
          
    }
-
+   
+   /**
+   *Method to do fast attack.
+   *@return String result of attack
+   *@param victim Pokemon being attacked
+   */
    public String performFastAttack(Pokemon victim) {
    
       Random rand = new Random();
@@ -85,7 +113,7 @@ public class Eevee extends Pokemon implements NormalType,NullType {
       s = name + " performed " + fastAttack + " on " + victim.getSpecies();
       //check effectiveness of attack
       
-      if (vType.equals("Rock") || vType.equals("Steel") ) {
+      if (vType.equals("Rock") || vType.equals("Steel")) {
             
          s = s + "\n It was not very effective.";
          modifier = modifier * 0.5;          
@@ -103,6 +131,11 @@ public class Eevee extends Pokemon implements NormalType,NullType {
    
    } //close performFastAttack
    
+   /**
+   *Method to do special attack.
+   *@return String result of attack
+   *@param victim Pokemon being attacked
+   */
    public String performSpecialAttack(Pokemon victim) {
    
       Random rand = new Random();
@@ -116,12 +149,11 @@ public class Eevee extends Pokemon implements NormalType,NullType {
       //random modifier .85 - 1.00
       modifier = (double) (rand.nextInt(16) + 85) / 100.0;       
       s = name + " performed " + specialAttack + " on " + victim.getSpecies();
-      if (vType.equals("Rock") || vType.equals("Steel") 
-             ) {
+      if (vType.equals("Rock") || vType.equals("Steel")) {
              
          s = s + "\n It was not very effective.";
          modifier = modifier * .5;          
-      } else if (vType.equals("Ghost") ) { 
+      } else if (vType.equals("Ghost")) { 
             
          s = s + "\n It had no effect...";
          modifier = modifier * 0.0;
@@ -138,17 +170,21 @@ public class Eevee extends Pokemon implements NormalType,NullType {
    
    } //close performSpecialAttack
    
+   /**
+   *Method for Pokemon being attacked.
+   *@param damage done to Pokemon being attacked
+   */
    protected void beAttacked(int damage) {
    
-      damage = damage/defensePower;
+      damage = damage / defensePower;
    
-      if(hP> damage){
-         hP = hP-damage;
-      }else{
+      if (hP > damage) {
+         hP = hP - damage;
+      } else {
          hP = 0;
       }
    
    } //close beAttacked
 
 
-}//close
+} //close
