@@ -6,6 +6,7 @@ import java.util.*;
 */
 
 public class Eevee extends Pokemon implements NormalType,NullType {
+   
    /**base attack power.*/
    static final int ATTACK = 104;
    /**base defense power.*/
@@ -44,6 +45,9 @@ public class Eevee extends Pokemon implements NormalType,NullType {
        
       super(species, name, num, NORMAL_COLOR, ht, wt, NORMAL_TYPE, 
          NULL_TYPE, baseAttackPwr, baseDefensePwr, baseStaminaPwr);
+         
+         chooseFastAttack();
+         chooseSpecialAttack();
    }
    
    protected void chooseFastAttack() {

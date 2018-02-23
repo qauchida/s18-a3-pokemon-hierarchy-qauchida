@@ -1,3 +1,4 @@
+import java.util.*;
 /**
 *@qauchida
 *@since 02/14/18
@@ -13,24 +14,24 @@ public class Jolteon extends Eevee implements ElectricType, NullType{
    static final int STAMINA = 130;
 
    /***/
-   protected boolean fastIsNormal = true;
+   protected boolean fastIsElectric = true;
    /***/
-   protected boolean specialIsNormal = true;
+   protected boolean specialIsElectric = true;
 
 
    public Jolteon() {
-      super("Jolteon", "Jolteon", 135, ELECTRIC_COLOR, 0.8,24.5,
-         ELECTRIC_TYPE, NULL_TYPE,ATTACK, DEFENSE, STAMINA);
+      super("Jolteon", "Jolteon", 135, 0.8, 24.5, ELECTRIC_TYPE, NULL_TYPE,
+         ATTACK, DEFENSE, STAMINA);
    
       chooseFastAttack();
       chooseSpecialAttack(); 
    
    }
 
-//constructor with name
+   //constructor with name
    public Jolteon(String name) {
-      super("Jolteon", name, 135, ELECTRIC_COLOR, 0.8, 24.5,
-         ELECTRIC_TYPE, NULL_TYPE, ATTACK, DEFENSE, STAMINA);
+      super("Jolteon", name, 135, 0.8, 24.5, ELECTRIC_TYPE, NULL_TYPE,
+      ATTACK, DEFENSE, STAMINA);
    
       chooseFastAttack();
       chooseSpecialAttack();
@@ -41,27 +42,30 @@ public class Jolteon extends Eevee implements ElectricType, NullType{
        double ht, double wt,String ELECTRIC_TYPE, String NULL_TYPE, int baseAttackPwr, int baseDefensePwr, 
        int baseStaminaPwr) {
        
-      super(species, name, num, ELECTRIC_COLOR, ht, wt, ELECTRIC_TYPE, 
+      super(species, name, num, ht, wt, ELECTRIC_TYPE, 
          NULL_TYPE, baseAttackPwr, baseDefensePwr, baseStaminaPwr);
    }
    
    protected void chooseFastAttack() {
+   
       Random ranNum = new Random();
       int index;
-      fastIsNormal = ranNum.nextBoolean();
+      
+      fastIsElectric = ranNum.nextBoolean();
       index = ranNum.nextInt(ELECTRIC_FAST_ATTACKS.length);
       fastAttack = ELECTRIC_FAST_ATTACKS[index];
-      fastAttackPower = ELECTRIC_FAST_ATK_PWR[index];
+      fastAttackPower = ELECTRIC_FAST_ATK_POWER[index];
    
    }
    
    protected void chooseSpecialAttack() {
       Random ranNum = new Random();
       int index;
-      specialIsNormal = ranNum.nextBoolean();
+      
+      specialIsElectric = ranNum.nextBoolean();
       index = ranNum.nextInt(ELECTRIC_SPECIAL_ATTACKS.length);
       specialAttack = ELECTRIC_SPECIAL_ATTACKS[index];
-      specialAttackPower = ELECTRIC_SPECIAL_ATK_PWR[index];
+      specialAttackPower = ELECTRIC_SPECIAL_ATK_POWER[index];
          
    }
 
@@ -84,7 +88,10 @@ public class Jolteon extends Eevee implements ElectricType, NullType{
             
          s = s + "\n It was not very effective.";
          modifier = modifier * 0.5;          
-      } else if (vType.equals("Rock")) { 
+      } if(vType.equals("Water")){
+         modifier = modifier * 2.0;
+         s = s + "\n It was super effective!";
+      }else if (vType.equals("Rock")) { 
          s = s + "\n It had no effect...";
          modifier = modifier * 0.0;
       }

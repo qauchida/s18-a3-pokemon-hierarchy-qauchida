@@ -1,26 +1,26 @@
 import java.util.*;
 /**
 *@qauchida
-*@since 02/14/18
-*Vaporeon
+*@since 02/22/18
+*flareon
 */
 
-public class Vaporeon extends Eevee implements WaterType, NullType{
+public class Flareon extends Eevee implements FireType, NullType{
 
-   static final int ATTACK = 205;
+   static final int ATTACK = 246;
    /**base defense power.*/
-   static final int DEFENSE = 177;
+   static final int DEFENSE = 204;
    /**base stamina power.*/
-   static final int STAMINA = 260;
+   static final int STAMINA = 130;
 
    /***/
-   protected boolean fastIsWater = true;
+   protected boolean fastIsFire = true;
    /***/
-   protected boolean specialIsWater = true;
+   protected boolean specialIsFire = true;
 
 
-   public Vaporeon() {
-      super("Vaporeon", "Vaporeon", 134, 1.0, 29.0, WATER_TYPE, WATER_TYPE,
+   public Flareon() {
+      super("Flareon", "Flareon", 136, 0.9, 25.0, FIRE_TYPE, NULL_TYPE,
          ATTACK, DEFENSE, STAMINA);
    
       chooseFastAttack();
@@ -29,8 +29,8 @@ public class Vaporeon extends Eevee implements WaterType, NullType{
    }
 
    //constructor with name
-   public Vaporeon(String name) {
-      super("Vaporeon", name, 134, 1.0, 29.0, WATER_TYPE, NULL_TYPE,
+   public Flareon(String name) {
+      super("Flareon", name, 136, 0.9, 25.0, FIRE_TYPE, NULL_TYPE,
          ATTACK, DEFENSE, STAMINA);
    
       chooseFastAttack();
@@ -38,11 +38,11 @@ public class Vaporeon extends Eevee implements WaterType, NullType{
    
    }
 
-   protected Vaporeon(String species, String name, int num, 
-       double ht, double wt,String WATER_TYPE, String NULL_TYPE, int baseAttackPwr, int baseDefensePwr, 
+   protected Flareon(String species, String name, int num, 
+       double ht, double wt,String FIRE_TYPE, String NULL_TYPE, int baseAttackPwr, int baseDefensePwr, 
        int baseStaminaPwr) {
        
-      super(species, name, num, ht, wt, WATER_TYPE, 
+      super(species, name, num, ht, wt, FIRE_TYPE, 
          NULL_TYPE, baseAttackPwr, baseDefensePwr, baseStaminaPwr);
    }
    
@@ -51,10 +51,10 @@ public class Vaporeon extends Eevee implements WaterType, NullType{
       Random ranNum = new Random();
       int index;
       
-      fastIsWater = ranNum.nextBoolean();
-      index = ranNum.nextInt(WATER_FAST_ATTACKS.length);
-      fastAttack = WATER_FAST_ATTACKS[index];
-      fastAttackPower = WATER_FAST_ATK_POWER[index];
+      fastIsFire = ranNum.nextBoolean();
+      index = ranNum.nextInt(FIRE_FAST_ATTACKS.length);
+      fastAttack = FIRE_FAST_ATTACKS[index];
+      fastAttackPower = FIRE_FAST_ATK_POWER[index];
    
    }
    
@@ -62,10 +62,10 @@ public class Vaporeon extends Eevee implements WaterType, NullType{
       Random ranNum = new Random();
       int index;
       
-      specialIsWater = ranNum.nextBoolean();
-      index = ranNum.nextInt(WATER_SPECIAL_ATTACKS.length);
-      specialAttack = WATER_SPECIAL_ATTACKS[index];
-      specialAttackPower = WATER_SPECIAL_ATK_POWER[index];
+      specialIsFire = ranNum.nextBoolean();
+      index = ranNum.nextInt(FIRE_SPECIAL_ATTACKS.length);
+      specialAttack = FIRE_SPECIAL_ATTACKS[index];
+      specialAttackPower = FIRE_SPECIAL_ATK_POWER[index];
          
    }
 
@@ -84,15 +84,19 @@ public class Vaporeon extends Eevee implements WaterType, NullType{
       s = name + " performed " + fastAttack + " on " + victim.getSpecies();
       //check effectiveness of attack
       
-      if (vType.equals("Grass") || vType.equals("Water") || vType.equals("Dragon")) {
+      if (vType.equals("Ground") || vType.equals("Steel") ) {
             
          s = s + "\n It was not very effective.";
          modifier = modifier * 0.5;          
       } 
-      if(vType.equals("Ground") || vType.equals("Rock") || vType.equals("Fire")){
+      if(vType.equals("Water")){
          modifier = modifier * 2.0;
          s = s + "\n It was super effective!";
-      }   
+      }else if (vType.equals("Rock")) { 
+         s = s + "\n It had no effect...";
+         modifier = modifier * 0.0;
+      }
+   
         //bulbapedia damage formula:
       damage = (((2 * level) + 10) / damageDivisor) 
          * attackPower * (specialAttackPower + 2) * modifier;      
@@ -115,18 +119,23 @@ public class Vaporeon extends Eevee implements WaterType, NullType{
       //random modifier .85 - 1.00
       modifier = (double) (rand.nextInt(16) + 85) / 100.0;       
       s = name + " performed " + specialAttack + " on " + victim.getSpecies();
-      if (vType.equals("Grass") || vType.equals("Water") || vType.equals("Dragon") 
+      if (vType.equals("Ground") || vType.equals("Steel") 
              ) {
              
          s = s + "\n It was not very effective.";
          modifier = modifier * .5;          
       } 
-      if(vType.equals("Fire") || vType.equals("Rock") || vType.equals("Ground")){
+      if(vType.equals(vType.equals("Water"))){
       
          s = s + "\n It was super effective!";
          modifier = modifier * 2.0;
       
-      }     
+      }else if (vType.equals("Electric") ) { 
+            
+         s = s + "\n It had no effect...";
+         modifier = modifier * 0.0;
+      }
+      
             
       //bulbapedia damage formula:
       damage = (((2 * level) + 10) / damageDivisor) 

@@ -18,7 +18,7 @@ public class Charizard extends Charmeleon implements FlyingType{
    
    /** Constructor with no name. */
    public Charizard() {
-      super("Charizard", "Charizard", 6, 1.7, 90.5,FIRE_TYPE, 
+      super("Charizard", "Charizard", 6, 1.7, 90.5, FIRE_TYPE, 
           FLYING_TYPE, BASE_ATTACK_POWER, 
           BASE_DEFENSE_POWER, BASE_STAMINA_POWER);   
       chooseFastAttack();
