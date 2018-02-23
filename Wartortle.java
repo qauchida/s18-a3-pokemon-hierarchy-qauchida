@@ -1,7 +1,7 @@
 /**
 *@qauchida
 *@since 02/07/18
-*Wartorle
+*Wartorle Pokemon Object
 */
 public class Wartortle extends Squirtle {
  /** The minimum attack power for species. */

@@ -3,7 +3,7 @@
 *@since 02/13/18
 *blastoise
 */
-public class Blastoise extends Wartortle{
+public class Blastoise extends Wartortle {
 
    /** The minimum attack power for species. */ 
    static final int BASE_ATTACK_POWER = 171;

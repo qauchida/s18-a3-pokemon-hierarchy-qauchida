@@ -48,13 +48,14 @@ public class Squirtle extends Pokemon implements WaterType, NullType {
    
    /**
    *with name constructor. 
-   *@param species Squirtle
-   *@param num 7
-   *@param ht 0.5
-   *@param wt 9.0
-   *@param baseAttackPwr 94
-   *@param baseDefensePwr 122
-   *@param baseStaminaPwr 88
+   *@param name Pokemon name based on user input
+   *@param species Pokemon's species
+   *@param num Pokemon's number
+   *@param ht Pokemon's height in m
+   *@param wt Pokemon's weight in kg
+   *@param baseAttackPwr found on silph road
+   *@param baseDefensePwr found on silph road
+   *@param baseStaminaPwr found on silph road
    */
    protected Squirtle(String species, String name, int num, 
        double ht, double wt, int baseAttackPwr, int baseDefensePwr, 
@@ -81,7 +82,9 @@ public class Squirtle extends Pokemon implements WaterType, NullType {
    
    }
    /**
-   *method to do fast attack
+   *method to do fast attack.
+   *@return String result of fast attack
+   *@param victim Pokemon being attacked
    */
    public String performFastAttack(Pokemon victim) {
       
@@ -99,12 +102,12 @@ public class Squirtle extends Pokemon implements WaterType, NullType {
       //check effectiveness of attack
       
       if (vType.equals("Ground") || vType.equals("Rock") 
-             || vType.equals("Fire")) {
+          || vType.equals("Fire")) {
          s = s + "\n It was super effective!";
          modifier = modifier * 2.0; 
                      
-      } else if ( vType.equals("Water") || vType.equals("Dragon") ||
-             vType.equals("Grass")|| vType.equals("Dragon")){ 
+      } else if (vType.equals("Water") || vType.equals("Dragon") 
+                 || vType.equals("Grass") || vType.equals("Dragon")) { 
          s = s + "\n It was not very effective.";
          modifier = modifier * 0.5;
       }
@@ -136,6 +139,8 @@ public class Squirtle extends Pokemon implements WaterType, NullType {
 
    /**
    *method to do special attack.
+   *@return String result of attack 
+   *@param victim Pokemon being attacked
    */
    public String performSpecialAttack(Pokemon victim) {
       Random rand = new Random();
@@ -158,8 +163,9 @@ public class Squirtle extends Pokemon implements WaterType, NullType {
          s = s + "\n It was super effective!";
          modifier = modifier * 2.0;          
       } 
-      if (vType.equals("Water") || vType.equals("Dragon")|| vType.equals("Grass")
-         ||vType2.equals("Grass") || vType2.equals("Dragon") || vType2.equals("Water"))
+      if (vType.equals("Water") || vType.equals("Dragon") 
+          || vType.equals("Grass") || vType2.equals("Grass") 
+          || vType2.equals("Dragon") || vType2.equals("Water"))
          
       {    
          s = s + "\n It was not very effective.";
